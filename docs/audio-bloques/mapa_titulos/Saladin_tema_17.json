@@ -1,309 +1,309 @@
 {
- "capitulo": "Saladin_tema_17",
- "libro": "Saladin",
- "titulo_capitulo": "Sistema endocrino",
- "palabras_texto": 24313,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "17.1",
-   "titulo": "Revisión general del sistema endocrino",
-   "palabra": 253,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Comparación entre las glándulas endocrinas y exocrinas",
-   "palabra": 593,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Comparación entre los sistemas nervioso y endocrino",
-   "palabra": 1114,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Nomenclatura hormonal",
-   "palabra": 1878,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.2",
-   "titulo": "Hipotálamo e hipófisis",
-   "palabra": 1953,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Anatomía",
-   "palabra": 2258,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Hormonas hipotalámicas",
-   "palabra": 3146,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Hormonas de la adenohipófisis",
-   "palabra": 3545,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "La parte intermedia",
-   "palabra": 4260,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Hormonas de la neurohipófisis",
-   "palabra": 4386,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Control de la secreción hipofisaria",
-   "palabra": 4730,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Revisión adicional de la somatotropina",
-   "palabra": 5485,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.3",
-   "titulo": "Otras glándulas endocrinas",
-   "palabra": 6310,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glándula pineal",
-   "palabra": 6366,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Timo",
-   "palabra": 6721,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glándula tiroidea",
-   "palabra": 6895,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glándulas paratiroideas",
-   "palabra": 7728,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glándulas suprarrenales",
-   "palabra": 7856,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Islotes pancreáticos",
-   "palabra": 9342,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Gónadas",
-   "palabra": 10123,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Funciones endocrinas de otros tejidos y órganos",
-   "palabra": 10546,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.4",
-   "titulo": "Hormonas y sus acciones",
-   "palabra": 12278,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Química hormonal",
-   "palabra": 12457,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Síntesis hormonal",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Transporte hormonal",
-   "palabra": 13874,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Receptores hormonales y modo de acción",
-   "palabra": 14233,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Amplificación enzimática",
-   "palabra": 16056,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Modulación de la sensitividad de las células blanco",
-   "palabra": 16413,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Interacciones hormonales",
-   "palabra": 16625,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Eliminación de las hormonas",
-   "palabra": 17053,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.5",
-   "titulo": "Tensión y adaptación",
-   "palabra": 17235,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Reacción de alarma",
-   "palabra": 17454,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Etapa de resistencia",
-   "palabra": 17569,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Etapa de agotamiento",
-   "palabra": 17888,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.6",
-   "titulo": "Eicosanoides y sistema de señales paracrino",
-   "palabra": 18054,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "17.7",
-   "titulo": "Trastornos endocrinos",
-   "palabra": 18593,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Hiposecreción e hipersecreción",
-   "palabra": 19205,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Trastornos hipofisarios",
-   "palabra": 19520,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Trastornos tiroideos y paratiroideos",
-   "palabra": 19603,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Trastornos suprarrenales",
-   "palabra": 19983,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Diabetes mellitus",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Temas de conexión",
-   "palabra": null,
-   "narrable": false
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Guía de estudio",
-   "palabra": null,
-   "narrable": false
-  }
- ]
+  "capitulo": "Saladin_tema_17",
+  "libro": "Saladin",
+  "titulo_capitulo": "Sistema endocrino",
+  "palabras_texto": 24313,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "17.1",
+      "titulo": "Revisión general del sistema endocrino",
+      "palabra": 253,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Comparación entre las glándulas endocrinas y exocrinas",
+      "palabra": 593,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Comparación entre los sistemas nervioso y endocrino",
+      "palabra": 1114,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Nomenclatura hormonal",
+      "palabra": 1878,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.2",
+      "titulo": "Hipotálamo e hipófisis",
+      "palabra": 1953,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Anatomía",
+      "palabra": 2258,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hormonas hipotalámicas",
+      "palabra": 3146,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hormonas de la adenohipófisis",
+      "palabra": 3545,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "La parte intermedia",
+      "palabra": 4260,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hormonas de la neurohipófisis",
+      "palabra": 4386,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Control de la secreción hipofisaria",
+      "palabra": 4730,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Revisión adicional de la somatotropina",
+      "palabra": 5485,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.3",
+      "titulo": "Otras glándulas endocrinas",
+      "palabra": 6310,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glándula pineal",
+      "palabra": 6366,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Timo",
+      "palabra": 6721,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glándula tiroidea",
+      "palabra": 6895,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glándulas paratiroideas",
+      "palabra": 7728,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glándulas suprarrenales",
+      "palabra": 7856,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Islotes pancreáticos",
+      "palabra": 9342,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Gónadas",
+      "palabra": 10123,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Funciones endocrinas de otros tejidos y órganos",
+      "palabra": 10546,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.4",
+      "titulo": "Hormonas y sus acciones",
+      "palabra": 12278,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Química hormonal",
+      "palabra": 12457,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Síntesis hormonal",
+      "palabra": 12779,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Transporte hormonal",
+      "palabra": 13874,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Receptores hormonales y modo de acción",
+      "palabra": 14233,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Amplificación enzimática",
+      "palabra": 16056,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Modulación de la sensitividad de las células blanco",
+      "palabra": 16413,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Interacciones hormonales",
+      "palabra": 16625,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Eliminación de las hormonas",
+      "palabra": 17053,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.5",
+      "titulo": "Tensión y adaptación",
+      "palabra": 17235,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Reacción de alarma",
+      "palabra": 17454,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Etapa de resistencia",
+      "palabra": 17569,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Etapa de agotamiento",
+      "palabra": 17888,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.6",
+      "titulo": "Eicosanoides y sistema de señales paracrino",
+      "palabra": 18054,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "17.7",
+      "titulo": "Trastornos endocrinos",
+      "palabra": 18593,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hiposecreción e hipersecreción",
+      "palabra": 19205,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Trastornos hipofisarios",
+      "palabra": 19520,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Trastornos tiroideos y paratiroideos",
+      "palabra": 19603,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Trastornos suprarrenales",
+      "palabra": 19983,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Diabetes mellitus",
+      "palabra": 20272,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Tipos y tratamiento",
+      "palabra": 20727,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Patogénesis",
+      "palabra": 21491,
+      "narrable": true
+    }
+  ]
 }

@@ -1,57 +1,141 @@
 {
- "capitulo": "Calvo_tema_17",
- "libro": "Calvo",
- "titulo_capitulo": "Bases celulares de la respuesta inmunitaria",
- "palabras_texto": 14301,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Propiedades generales del sistema inmunitario. Inmunidad innata y adaptativa",
-   "palabra": 102,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Concepto de inmunidad",
-   "palabra": 111,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Reconocimiento del antígeno",
-   "palabra": 1936,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Activación linfocitaria",
-   "palabra": 9195,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Mecanismos efectores",
-   "palabra": 10911,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Regulación de la respuesta inmunitaria",
-   "palabra": 12507,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Disfunciones del sistema inmunitario y sus consecuencias",
-   "palabra": 13308,
-   "narrable": true
-  }
- ]
+  "capitulo": "Calvo_tema_17",
+  "libro": "Calvo",
+  "titulo_capitulo": "Bases celulares de la respuesta inmunitaria",
+  "palabras_texto": 14301,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Propiedades generales del sistema inmunitario. Inmunidad innata y adaptativa",
+      "palabra": 102,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Concepto de inmunidad",
+      "palabra": 111,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Reconocimiento del antígeno",
+      "palabra": 1936,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Anticuerpos",
+      "palabra": 2357,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Estructura y tipos",
+      "palabra": 2358,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Especificidad, diversidad y afinidad",
+      "palabra": 3503,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "El receptor de la célula B",
+      "palabra": 3854,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Uso de anticuerpos en biomedicina",
+      "palabra": 4231,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Complejo principal de histocompatibilidad",
+      "palabra": 4878,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "El receptor de la célula T, R C T",
+      "palabra": 6229,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Los correceptores C D cuatro y C D ocho",
+      "palabra": 6918,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Moléculas accesorias en las células T",
+      "palabra": 7146,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Procesamiento antigénico y presentación del antígeno a los linfocitos T",
+      "palabra": 7991,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Vía de procesamiento del antígeno de clase I",
+      "palabra": 8468,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Vía de procesamiento de clase II",
+      "palabra": 8892,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Activación linfocitaria",
+      "palabra": 9195,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Mecanismos efectores",
+      "palabra": 10911,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Regulación de la respuesta inmunitaria",
+      "palabra": 12507,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Disfunciones del sistema inmunitario y sus consecuencias",
+      "palabra": 13308,
+      "narrable": true
+    }
+  ]
 }

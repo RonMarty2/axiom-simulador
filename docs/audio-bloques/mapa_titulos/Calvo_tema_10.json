@@ -1,183 +1,204 @@
 {
- "capitulo": "Calvo_tema_10",
- "libro": "Calvo",
- "titulo_capitulo": "Sistema de endomembranas celulares: retículo endoplasmático, aparato de Golgi y lisosomas",
- "palabras_texto": 10024,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Introducción",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Retículo endoplasmático rugoso",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Retículo endoplasmático liso",
-   "palabra": 3561,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Funciones",
-   "palabra": 3774,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Síntesis de lípidos y derivados lipídicos",
-   "palabra": 3775,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Detoxificación de sustancias liposolubles",
-   "palabra": 4363,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Participación en el metabolismo del glucógeno",
-   "palabra": 4532,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Aparato de Golgi",
-   "palabra": 4758,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Estructura y propiedades",
-   "palabra": 4761,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Funciones",
-   "palabra": 5277,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glucosilación",
-   "palabra": 5309,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Marcaje de enzimas lisosómicas",
-   "palabra": 5864,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Reciclaje de membranas",
-   "palabra": 6106,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Distribución adecuada de las distintas macromoléculas",
-   "palabra": 6177,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fragmentación y condensación",
-   "palabra": 6327,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Tráfico vesicular y formación de vesículas de secreción",
-   "palabra": 6728,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Lisosomas",
-   "palabra": 7465,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Estructura, características y tipos",
-   "palabra": 7466,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Calvo.)",
-   "palabra": 8271,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Tipos de digestión celular",
-   "palabra": 8272,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Patologías relacionadas con disfunciones de los lisosomas",
-   "palabra": 9080,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Por ruptura de los lisosomas",
-   "palabra": 9119,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Enfermedades causadas por acumulación o almacenamiento",
-   "palabra": 9384,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Enfermedad de Gaucher",
-   "palabra": 9698,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Mucolipidosis tipo II",
-   "palabra": 9891,
-   "narrable": true
-  }
- ]
+  "capitulo": "Calvo_tema_10",
+  "libro": "Calvo",
+  "titulo_capitulo": "Sistema de endomembranas celulares: retículo endoplasmático, aparato de Golgi y lisosomas",
+  "palabras_texto": 10024,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Introducción",
+      "palabra": 103,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Retículo endoplasmático rugoso",
+      "palabra": 235,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Estructura y composición",
+      "palabra": 238,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Traducción de proteínas en el R E R",
+      "palabra": 1119,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Localización y orientación de las proteínas en el R E R",
+      "palabra": 1755,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Modificaciones postraduccionales",
+      "palabra": 2351,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Retículo endoplasmático liso",
+      "palabra": 3561,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Funciones",
+      "palabra": 3774,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Síntesis de lípidos y derivados lipídicos",
+      "palabra": 3775,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Detoxificación de sustancias liposolubles",
+      "palabra": 4363,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Participación en el metabolismo del glucógeno",
+      "palabra": 4532,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Aparato de Golgi",
+      "palabra": 4758,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Estructura y propiedades",
+      "palabra": 4761,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Funciones",
+      "palabra": 5277,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glucosilación",
+      "palabra": 5309,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Marcaje de enzimas lisosómicas",
+      "palabra": 5864,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Reciclaje de membranas",
+      "palabra": 6106,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Distribución adecuada de las distintas macromoléculas",
+      "palabra": 6177,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fragmentación y condensación",
+      "palabra": 6327,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Tráfico vesicular y formación de vesículas de secreción",
+      "palabra": 6728,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Lisosomas",
+      "palabra": 7465,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Estructura, características y tipos",
+      "palabra": 7466,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Tipos de digestión celular",
+      "palabra": 8272,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Patologías relacionadas con disfunciones de los lisosomas",
+      "palabra": 9080,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Por ruptura de los lisosomas",
+      "palabra": 9119,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Enfermedades causadas por acumulación o almacenamiento",
+      "palabra": 9384,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Enfermedad de Gaucher",
+      "palabra": 9698,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Mucolipidosis tipo II",
+      "palabra": 9891,
+      "narrable": true
+    }
+  ]
 }

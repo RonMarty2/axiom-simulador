@@ -592,7 +592,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "FIGURA diez coma un cero Músculos de la masticación. Los rót"
+  "texto_inicio": "FIGURA diez punto diez Músculos de la masticación. Los rótul"
  },
  {
   "j": 86,
@@ -1068,7 +1068,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "FIGURA diez coma dos cero Músculos del piso pélvico. a El es"
+  "texto_inicio": "FIGURA diez punto veinte Músculos del piso pélvico. a El esp"
  },
  {
   "j": 154,
@@ -1145,7 +1145,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "FIGURA diez coma dos dos Acciones de algunos músculos toráci"
+  "texto_inicio": "Obsérvese que un músculo individual puede contribuir a varia"
  },
  {
   "j": 165,
@@ -1229,7 +1229,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "FIGURA diez coma dos tres Músculos pectoral y braquial. a Mú"
+  "texto_inicio": "FIGURA diez punto veintitrés Músculos pectoral y braquial. a"
  },
  {
   "j": 177,
@@ -1243,7 +1243,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "FIGURA diez coma dos cuatro Músculos pectoral, braquial y do"
+  "texto_inicio": "FIGURA diez punto veinticuatro Músculos pectoral, braquial y"
  },
  {
   "j": 179,
@@ -1278,7 +1278,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cero Músculos que actúan sobre el antebr"
+  "texto_inicio": "CUADRO diez punto diez Músculos que actúan sobre el antebraz"
  },
  {
   "j": 184,
@@ -1341,14 +1341,14 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cero Músculos que actúan sobre el antebr"
+  "texto_inicio": "CUADRO diez punto diez Músculos que actúan sobre el antebraz"
  },
  {
   "j": 193,
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un un Músculos que actúan sobre la muñeca y"
+  "texto_inicio": "CUADRO diez punto once Músculos que actúan sobre la muñeca y"
  },
  {
   "j": 194,
@@ -1411,7 +1411,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un un Músculos que actúan sobre la muñeca y"
+  "texto_inicio": "CUADRO diez punto once Músculos que actúan sobre la muñeca y"
  },
  {
   "j": 203,
@@ -1425,7 +1425,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un un Músculos que actúan sobre la muñeca y"
+  "texto_inicio": "CUADRO diez punto once Músculos que actúan sobre la muñeca y"
  },
  {
   "j": 205,
@@ -1446,7 +1446,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un un Músculos que actúan sobre la muñeca y"
+  "texto_inicio": "CUADRO diez punto once Músculos que actúan sobre la muñeca y"
  },
  {
   "j": 208,
@@ -1509,7 +1509,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un dos Músculos intrínsecos de la mano Los "
+  "texto_inicio": "CUADRO diez punto doce Músculos intrínsecos de la mano Los m"
  },
  {
   "j": 217,
@@ -1558,7 +1558,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un dos Músculos intrínsecos de la mano, con"
+  "texto_inicio": "CUADRO diez punto doce Músculos intrínsecos de la mano, cont"
  },
  {
   "j": 224,
@@ -1593,7 +1593,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un tres Músculos que actúan sobre la cadera"
+  "texto_inicio": "CUADRO diez punto trece Músculos que actúan sobre la cadera "
  },
  {
   "j": 229,
@@ -1614,7 +1614,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un tres Músculos que actúan sobre la cadera"
+  "texto_inicio": "CUADRO diez punto trece Músculos que actúan sobre la cadera "
  },
  {
   "j": 232,
@@ -1649,7 +1649,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "cincuenta y cincuenta y cincuenta y CUADRO diez coma un tres"
+  "texto_inicio": "cincuenta y cincuenta y cincuenta y CUADRO diez punto trece "
  },
  {
   "j": 237,
@@ -1684,7 +1684,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cuatro Músculos que actúan sobre la rodi"
+  "texto_inicio": "CUADRO diez punto catorce Músculos que actúan sobre la rodil"
  },
  {
   "j": 242,
@@ -1719,7 +1719,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "Muslo derecho. cincuenta y CUADRO diez coma un cuatro Múscul"
+  "texto_inicio": "Muslo derecho. cincuenta y CUADRO diez punto catorce Músculo"
  },
  {
   "j": 247,
@@ -1747,7 +1747,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cuatro Músculos que actúan sobre la rodi"
+  "texto_inicio": "CUADRO diez punto catorce Músculos que actúan sobre la rodil"
  },
  {
   "j": 251,
@@ -1768,7 +1768,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie L"
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie La"
  },
  {
   "j": 254,
@@ -1789,7 +1789,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie, "
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie, c"
  },
  {
   "j": 257,
@@ -1803,7 +1803,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie, "
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie, c"
  },
  {
   "j": 259,
@@ -1824,7 +1824,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie, "
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie, c"
  },
  {
   "j": 262,
@@ -1859,14 +1859,14 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie, "
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie, c"
  },
  {
   "j": 267,
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un cinco Músculos que actúan sobre el pie, "
+  "texto_inicio": "CUADRO diez punto quince Músculos que actúan sobre el pie, c"
  },
  {
   "j": 268,
@@ -1880,7 +1880,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un seis Músculos intrínsecos del pie Los mú"
+  "texto_inicio": "CUADRO diez punto dieciséis Músculos intrínsecos del pie Los"
  },
  {
   "j": 270,
@@ -1950,7 +1950,7 @@
   "accion": "SINTETIZAR",
   "origen": null,
   "motivo": "nuevo",
-  "texto_inicio": "CUADRO diez coma un seis Músculos intrínsecos del pie, conti"
+  "texto_inicio": "CUADRO diez punto dieciséis Músculos intrínsecos del pie, co"
  },
  {
   "j": 280,

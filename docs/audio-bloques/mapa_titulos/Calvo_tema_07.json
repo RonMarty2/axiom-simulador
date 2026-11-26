@@ -1,99 +1,106 @@
 {
- "capitulo": "Calvo_tema_07",
- "libro": "Calvo",
- "titulo_capitulo": "El núcleo. Parte I: organización de la cromatina y conservación de la información genética",
- "palabras_texto": 19351,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Introducción",
-   "palabra": 113,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Envoltura nuclear. Poros nucleares",
-   "palabra": 437,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Organización del núcleo en interfase",
-   "palabra": 2707,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Estructura de la cromatina en interfase. Histonas",
-   "palabra": 3421,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Eucromatina y heterocromatina",
-   "palabra": 5187,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Cromosomas",
-   "palabra": 6229,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Aberraciones cromosómicas y enfermedades humanas",
-   "palabra": 8903,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Complejidad del ADN humano. Tipos de secuencias en el ADN",
-   "palabra": 9890,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Proyecto genoma humano",
-   "palabra": 12337,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Replicación del ADN genómico",
-   "palabra": 13681,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Estabilidad y reordenamiento del ADN genómico",
-   "palabra": 15708,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Recombinación homóloga",
-   "palabra": 16288,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Mutación y reparación del ADN genómico",
-   "palabra": 17274,
-   "narrable": true
-  }
- ]
+  "capitulo": "Calvo_tema_07",
+  "libro": "Calvo",
+  "titulo_capitulo": "El núcleo. Parte I: organización de la cromatina y conservación de la información genética",
+  "palabras_texto": 19351,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Introducción",
+      "palabra": 113,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Envoltura nuclear. Poros nucleares",
+      "palabra": 437,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Organización del núcleo en interfase",
+      "palabra": 2707,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Estructura de la cromatina en interfase. Histonas",
+      "palabra": 3421,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Eucromatina y heterocromatina",
+      "palabra": 5187,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Cromosomas",
+      "palabra": 6229,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Métodos de estudio de los cromosomas. Nomenclatura",
+      "palabra": 7348,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Aberraciones cromosómicas y enfermedades humanas",
+      "palabra": 8903,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Complejidad del ADN humano. Tipos de secuencias en el ADN",
+      "palabra": 9890,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Proyecto genoma humano",
+      "palabra": 12337,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Replicación del ADN genómico",
+      "palabra": 13681,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Estabilidad y reordenamiento del ADN genómico",
+      "palabra": 15708,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Recombinación homóloga",
+      "palabra": 16288,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Mutación y reparación del ADN genómico",
+      "palabra": 17274,
+      "narrable": true
+    }
+  ]
 }

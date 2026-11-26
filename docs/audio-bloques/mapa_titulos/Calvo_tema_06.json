@@ -1,85 +1,155 @@
 {
- "capitulo": "Calvo_tema_06",
- "libro": "Calvo",
- "titulo_capitulo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
- "palabras_texto": 10784,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Especializaciones de la membrana plasmática",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Membrana basal",
-   "palabra": 5224,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Matriz extracelular (MEC)",
-   "palabra": 6541,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fibras de la MEC",
-   "palabra": 6684,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fibras de colágeno",
-   "palabra": 6741,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fibras reticulares",
-   "palabra": 8341,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fibras elásticas",
-   "palabra": 8472,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Sustancia fundamental",
-   "palabra": 9178,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Glucosaminoglucanos",
-   "palabra": 9224,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Proteoglucanos",
-   "palabra": 9667,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Calvo.)",
-   "palabra": 10339,
-   "narrable": true
-  }
- ]
+  "capitulo": "Calvo_tema_06",
+  "libro": "Calvo",
+  "titulo_capitulo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
+  "palabras_texto": 10784,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Especializaciones de la membrana plasmática",
+      "palabra": 2,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Microvellosidades",
+      "palabra": 436,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Cadherinas",
+      "palabra": 1455,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Zonula adherens o cinturón de adhesión",
+      "palabra": 1702,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Macula adherens o desmosoma",
+      "palabra": 1889,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hemidesmosomas",
+      "palabra": 2759,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Adhesiones focales",
+      "palabra": 2936,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Selectinas",
+      "palabra": 3377,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "IgSF-C A M",
+      "palabra": 3722,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Uniones ocluyentes, zonula occludens o unión estrecha",
+      "palabra": 3967,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Uniones comunicantes, o uniones de tipo gap, nexo o hendidura",
+      "palabra": 4407,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Membrana basal",
+      "palabra": 5224,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "",
+      "titulo": "Matriz extracelular, M E C",
+      "palabra": 6541,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fibras de la M E C",
+      "palabra": 6684,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fibras de colágeno",
+      "palabra": 6741,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fibras reticulares",
+      "palabra": 8341,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fibras elásticas",
+      "palabra": 8472,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Sustancia fundamental",
+      "palabra": 9178,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glucosaminoglucanos",
+      "palabra": 9224,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Proteoglucanos",
+      "palabra": 9667,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Glucoproteínas adhesivas",
+      "palabra": 10124,
+      "narrable": true
+    }
+  ]
 }

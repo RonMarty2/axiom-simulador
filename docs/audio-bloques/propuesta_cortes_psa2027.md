@@ -5,10 +5,10 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 ## Resumen ejecutivo
 
 - **Capítulos PSA 2027:** 39 (mapas completos: 39; faltantes: 0).
-- **Total de partes propuestas:** 329.
-- **Dentro del rango aceptable (3–20 min):** 313 / 329 (95.1%).
-- **Dentro del objetivo ideal (5–15 min):** 272 / 329 (82.7%).
-- **Excepciones >20 min (sin sub-subtítulos):** 16.
+- **Total de partes propuestas:** 347.
+- **Dentro del rango aceptable (3–20 min):** 339 / 347 (97.7%).
+- **Dentro del objetivo ideal (5–15 min):** 299 / 347 (86.2%).
+- **Excepciones >20 min (sin sub-subtítulos):** 8.
 - **Excepciones <3 min:** 0.
 
 ## Muestra para OK de Ronald (2 capítulos)
@@ -51,33 +51,33 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | EdS_Parte3_3 | EdS | Coeficiente de asimetría de Fisher | 1187 | 7.9 | 1 | 1/1 | — |
 | Tema_03_Biologia_Celular | Calvo | Estructura de la membrana plasmática | 11445 | 76.3 | 7 | 7/7 | — |
 | Tema_05_Biologia_Celular | Calvo | Macrotransporte a través de la membrana plasmática: endocitosis y exocitosis | 12425 | 82.8 | 6 | 6/6 | — |
-| Tema_06_Biologia_Celular | Calvo | Especializaciones de la membrana plasmática e interacción de la célula con su entorno | 10784 | 71.9 | 3 | 2/3 | >20 min (sin sub-subtítulos) |
+| Tema_06_Biologia_Celular | Calvo | Especializaciones de la membrana plasmática e interacción de la célula con su entorno | 10784 | 71.9 | 7 | 7/7 | — |
 | Tema_07_Biologia_Celular | Calvo | El núcleo. Parte I: organización de la cromatina y conservación de la información genética | 19351 | 129.0 | 11 | 11/11 | — |
 | Tema_08_Biologia_Celular | Calvo | El núcleo. Parte II: transcripción y maduración del ARN y estructura del nucléolo | 10500 | 70.0 | 5 | 5/5 | — |
 | Tema_09_Biologia_Celular | Calvo | Síntesis y modificación de proteínas | 9827 | 65.5 | 6 | 6/6 | — |
-| Tema_10_Biologia_Celular | Calvo | Sistema de endomembranas celulares: retículo endoplasmático, aparato de Golgi y lisosomas | 10024 | 66.8 | 4 | 3/4 | >20 min (sin sub-subtítulos) |
+| Tema_10_Biologia_Celular | Calvo | Sistema de endomembranas celulares: retículo endoplasmático, aparato de Golgi y lisosomas | 10024 | 66.8 | 5 | 5/5 | — |
 | Tema_11_Biologia_Celular | Calvo | Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo | 10907 | 72.7 | 6 | 5/6 | >20 min (sin sub-subtítulos) |
 | Tema_12_Biologia_Celular | Calvo | El citoesqueleto | 14098 | 94.0 | 8 | 8/8 | — |
 | Tema_13_Biologia_Celular | Calvo | Mecanismos de señalización celular | 12267 | 81.8 | 6 | 6/6 | — |
 | Tema_14_Biologia_Celular | Calvo | Ciclo celular y destinos vitales de la célula | 13036 | 86.9 | 8 | 8/8 | — |
 | Tema_15_Biologia_Celular | Calvo | División celular y muerte programada | 10785 | 71.9 | 6 | 6/6 | — |
-| Tema_17_Biologia_Celular | Calvo | Bases celulares de la respuesta inmunitaria | 14301 | 95.3 | 5 | 4/5 | >20 min (sin sub-subtítulos) |
+| Tema_17_Biologia_Celular | Calvo | Bases celulares de la respuesta inmunitaria | 14301 | 95.3 | 8 | 8/8 | — |
 | Tema_18_Biologia_Celular | Calvo | Las células madre y sus aplicaciones terapéuticas | 8485 | 56.6 | 5 | 5/5 | — |
 | Tema_01_Morfo_Saladin | Saladin | Temas principales de anatomía y fisiología | 18033 | 120.2 | 9 | 9/9 | — |
 | Tema_05_Morfo_Saladin | Saladin | Histología | 17316 | 115.4 | 11 | 11/11 | — |
 | Tema_06_Morfo_Saladin | Saladin | El sistema tegumentario | 14235 | 94.9 | 8 | 8/8 | — |
 | Tema_08_Morfo_Saladin | Saladin | El sistema óseo | 19712 | 131.4 | 10 | 8/10 | >20 min (sin sub-subtítulos) |
-| Tema_09_Morfo_Saladin | Saladin | Articulaciones | 14112 | 94.1 | 7 | 6/7 | >20 min (sin sub-subtítulos) |
+| Tema_09_Morfo_Saladin | Saladin | Articulaciones | 14112 | 94.1 | 8 | 8/8 | — |
 | Tema_10_Morfo_Saladin | Saladin | El sistema muscular | 26048 | 173.7 | 15 | 14/15 | >20 min (sin sub-subtítulos) |
 | Tema_13_Morfo_Saladin | Saladin | Médula espinal, nervios raquídeos y reflejos somáticos | 15178 | 101.2 | 9 | 9/9 | — |
 | Tema_14_Morfo_Saladin | Saladin | El encéfalo y los pares craneales | 24703 | 164.7 | 14 | 13/14 | >20 min (sin sub-subtítulos) |
 | Tema_15_Morfo_Saladin | Saladin | El sistema nervioso autónomo y los reflejos viscerales | 9306 | 62.0 | 6 | 6/6 | — |
 | Tema_16_Morfo_Saladin | Saladin | Órganos de los sentidos | 28185 | 187.9 | 15 | 14/15 | >20 min (sin sub-subtítulos) |
-| Tema_17_Morfo_Saladin | Saladin | Sistema endocrino | 24313 | 162.1 | 12 | 11/12 | >20 min (sin sub-subtítulos) |
+| Tema_17_Morfo_Saladin | Saladin | Sistema endocrino | 24313 | 162.1 | 13 | 13/13 | — |
 | Tema_18_Morfo_Saladin | Saladin | El aparato circulatorio: sangre | 20774 | 138.5 | 12 | 12/12 | — |
 | Tema_19_Morfo_Saladin | Saladin | El aparato circulatorio: el corazón | 18481 | 123.2 | 11 | 11/11 | — |
-| Tema_20_Morfo_Saladin | Saladin | El aparato circulatorio: vasos sanguíneos y circulación | 29140 | 194.3 | 13 | 11/13 | >20 min (sin sub-subtítulos) |
-| Tema_21_Morfo_Saladin | Saladin | Los sistemas linfático e inmunitario | 24370 | 162.5 | 11 | 10/11 | >20 min (sin sub-subtítulos) |
+| Tema_20_Morfo_Saladin | Saladin | El aparato circulatorio: vasos sanguíneos y circulación | 29140 | 194.3 | 19 | 19/19 | — |
+| Tema_21_Morfo_Saladin | Saladin | Los sistemas linfático e inmunitario | 24370 | 162.5 | 13 | 13/13 | — |
 | Tema_22_Morfo_Saladin | Saladin | El aparato respiratorio | 24738 | 164.9 | 14 | 14/14 | — |
 | Tema_23_Morfo_Saladin | Saladin | El aparato urinario | 19157 | 127.7 | 10 | 10/10 | — |
 | Tema_25_Morfo_Saladin | Saladin | El aparato digestivo | 24143 | 161.0 | 13 | 13/13 | — |
@@ -161,9 +161,13 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | Membrana basal | 6541 | 43.6 | >20 min (sin sub-subtítulos) |
-| P02 | Matriz extracelular (MEC); Fibras de la MEC; Fibras de colágeno; Fibras reticulares | 1931 | 12.9 | OK |
-| P03 | Fibras elásticas; Sustancia fundamental; Glucosaminoglucanos; Proteoglucanos; Calvo.) | 2312 | 15.4 | OK |
+| P01 | Especializaciones de la membrana plasmática; Microvellosidades; Cadherinas; Zonula adherens o cinturón de adhesión | 1889 | 12.6 | OK |
+| P02 | Macula adherens o desmosoma; Hemidesmosomas; Adhesiones focales; Selectinas; IgSF-C A M | 2078 | 13.9 | OK |
+| P03 | Uniones ocluyentes, zonula occludens o unión estrecha; Uniones comunicantes, o uniones de tipo gap, nexo o hendidura | 1257 | 8.4 | OK |
+| P04 | Membrana basal; Matriz extracelular, M E C; Fibras de la M E C | 1517 | 10.1 | OK |
+| P05 | Fibras de colágeno; Fibras reticulares | 1731 | 11.5 | OK |
+| P06 | Fibras elásticas; Sustancia fundamental; Glucosaminoglucanos; Proteoglucanos | 1652 | 11.0 | OK |
+| P07 | Glucoproteínas adhesivas | 660 | 4.4 | OK |
 
 ### Tema_07_Biologia_Celular — El núcleo. Parte I: organización de la cromatina y conservación de la información genética (Calvo, 19351 pal., ~129.0 min)
 
@@ -172,8 +176,8 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P01 | Introducción; Envoltura nuclear. Poros nucleares | 2707 | 18.0 | OK |
 | P02 | Organización del núcleo en interfase | 714 | 4.8 | OK |
 | P03 | Estructura de la cromatina en interfase. Histonas | 1766 | 11.8 | OK |
-| P04 | Eucromatina y heterocromatina | 1042 | 6.9 | OK |
-| P05 | Cromosomas (introducción) | 2674 | 17.8 | OK |
+| P04 | Eucromatina y heterocromatina; Cromosomas (introducción) | 2161 | 14.4 | OK |
+| P05 | Métodos de estudio de los cromosomas. Nomenclatura | 1555 | 10.4 | OK |
 | P06 | Aberraciones cromosómicas y enfermedades humanas | 987 | 6.6 | OK |
 | P07 | Complejidad del ADN humano. Tipos de secuencias en el ADN | 2447 | 16.3 | OK |
 | P08 | Proyecto genoma humano | 1344 | 9.0 | OK |
@@ -206,10 +210,11 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | Retículo endoplasmático liso (introducción) | 3774 | 25.2 | >20 min (sin sub-subtítulos) |
-| P02 | Funciones ... Glucosilación (8 subtítulos) | 2090 | 13.9 | OK |
-| P03 | Marcaje de enzimas lisosómicas; Reciclaje de membranas; Distribución adecuada de las distintas macromoléculas; Fragmentación y condensación; Tráfico vesicular y formación de vesículas de secreción | 1601 | 10.7 | OK |
-| P04 | Lisosomas | 2559 | 17.1 | OK |
+| P01 | Introducción; Retículo endoplasmático rugoso; Estructura y composición; Traducción de proteínas en el R E R | 1755 | 11.7 | OK |
+| P02 | Localización y orientación de las proteínas en el R E R; Modificaciones postraduccionales | 1806 | 12.0 | OK |
+| P03 | Retículo endoplasmático liso; Aparato de Golgi; Estructura y propiedades; Funciones | 1748 | 11.7 | OK |
+| P04 | Glucosilación; Marcaje de enzimas lisosómicas; Reciclaje de membranas; Distribución adecuada de las distintas macromoléculas; Fragmentación y condensación; Tráfico vesicular y formación de vesículas de secreción | 2156 | 14.4 | OK |
+| P05 | Lisosomas | 2559 | 17.1 | OK |
 
 ### Tema_11_Biologia_Celular — Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo (Calvo, 10907 pal., ~72.7 min)
 
@@ -275,10 +280,13 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | Propiedades generales del sistema inmunitario. Inmunidad innata y adaptativa | 1936 | 12.9 | OK |
-| P02 | Reconocimiento del antígeno | 7259 | 48.4 | >20 min (sin sub-subtítulos) |
-| P03 | Activación linfocitaria | 1716 | 11.4 | OK |
-| P04 | Mecanismos efectores | 1596 | 10.6 | OK |
-| P05 | Regulación de la respuesta inmunitaria; Disfunciones del sistema inmunitario y sus consecuencias | 1794 | 12.0 | OK |
+| P02 | Reconocimiento del antígeno; Anticuerpos; Estructura y tipos; Especificidad, diversidad y afinidad | 1918 | 12.8 | OK |
+| P03 | El receptor de la célula B; Uso de anticuerpos en biomedicina | 1024 | 6.8 | OK |
+| P04 | Complejo principal de histocompatibilidad; El receptor de la célula T, R C T | 2040 | 13.6 | OK |
+| P05 | Los correceptores C D cuatro y C D ocho; Moléculas accesorias en las células T; Procesamiento antigénico y presentación del antígeno a los linfocitos T; Vía de procesamiento del antígeno de clase I | 1974 | 13.2 | OK |
+| P06 | Vía de procesamiento de clase II; Activación linfocitaria | 2019 | 13.5 | OK |
+| P07 | Mecanismos efectores | 1596 | 10.6 | OK |
+| P08 | Regulación de la respuesta inmunitaria; Disfunciones del sistema inmunitario y sus consecuencias | 1794 | 12.0 | OK |
 
 ### Tema_18_Biologia_Celular — Las células madre y sus aplicaciones terapéuticas (Calvo, 8485 pal., ~56.6 min)
 
@@ -353,12 +361,13 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | 9.1 Articulaciones y su clasificación | 1772 | 11.8 | OK |
-| P02 | 9.2 Articulaciones sinoviales; Anatomía general | 788 | 5.3 | OK |
-| P03 | Articulaciones y sistemas de palancas | 3710 | 24.7 | >20 min (sin sub-subtítulos) |
-| P04 | Movimiento de las articulaciones sinoviales | 2818 | 18.8 | OK |
-| P05 | 9.3 Anatomía de diartrosis seleccionadas; La articulación de la mandíbula; La articulación del hombro; La articulación del codo; La articulación de la cadera | 1892 | 12.6 | OK |
-| P06 | La articulación de la rodilla | 837 | 5.6 | OK |
-| P07 | La articulación del tobillo | 2295 | 15.3 | OK |
+| P02 | 9.2 Articulaciones sinoviales; Anatomía general; Articulaciones y sistemas de palancas; Ventaja mecánica | 1767 | 11.8 | OK |
+| P03 | Tipos de palancas; Rango de movimiento; Ejes de rotación | 1694 | 11.3 | OK |
+| P04 | Clases de articulaciones sinoviales | 1037 | 6.9 | OK |
+| P05 | Movimiento de las articulaciones sinoviales | 2818 | 18.8 | OK |
+| P06 | 9.3 Anatomía de diartrosis seleccionadas; La articulación de la mandíbula; La articulación del hombro; La articulación del codo; La articulación de la cadera | 1892 | 12.6 | OK |
+| P07 | La articulación de la rodilla | 837 | 5.6 | OK |
+| P08 | La articulación del tobillo | 2295 | 15.3 | OK |
 
 ### Tema_10_Morfo_Saladin — El sistema muscular (Saladin, 26048 pal., ~173.7 min)
 
@@ -454,12 +463,13 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P04 | Revisión adicional de la somatotropina; 17.3 Otras glándulas endocrinas; Glándula pineal; Timo; Glándula tiroidea | 2243 | 15.0 | OK |
 | P05 | Glándulas paratiroideas; Glándulas suprarrenales | 1614 | 10.8 | OK |
 | P06 | Islotes pancreáticos; Gónadas | 1204 | 8.0 | OK |
-| P07 | Funciones endocrinas de otros tejidos y órganos | 1732 | 11.5 | OK |
-| P08 | 17.4 Hormonas y sus acciones; Química hormonal; Transporte hormonal | 1955 | 13.0 | OK |
+| P07 | Funciones endocrinas de otros tejidos y órganos; 17.4 Hormonas y sus acciones; Química hormonal | 2233 | 14.9 | OK |
+| P08 | Síntesis hormonal; Transporte hormonal | 1454 | 9.7 | OK |
 | P09 | Receptores hormonales y modo de acción; Amplificación enzimática | 2180 | 14.5 | OK |
 | P10 | Modulación de la sensitividad de las células blanco; Interacciones hormonales; Eliminación de las hormonas; 17.5 Tensión y adaptación; 17.6 Eicosanoides y sistema de señales paracrino | 2180 | 14.5 | OK |
-| P11 | 17.7 Trastornos endocrinos (introducción); Hiposecreción e hipersecreción; Trastornos hipofisarios; Trastornos tiroideos y paratiroideos | 1390 | 9.3 | OK |
-| P12 | Trastornos suprarrenales | 4330 | 28.9 | >20 min (sin sub-subtítulos) |
+| P11 | 17.7 Trastornos endocrinos (introducción); Hiposecreción e hipersecreción; Trastornos hipofisarios; Trastornos tiroideos y paratiroideos; Trastornos suprarrenales; Diabetes mellitus | 2134 | 14.2 | OK |
+| P12 | Tipos y tratamiento | 764 | 5.1 | OK |
+| P13 | Patogénesis | 2822 | 18.8 | OK |
 
 ### Tema_18_Morfo_Saladin — El aparato circulatorio: sangre (Saladin, 20774 pal., ~138.5 min)
 
@@ -508,16 +518,22 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P08 | 20.3 Intercambio capilar (introducción); Difusión; Transcitosis; Filtración y reabsorción | 2203 | 14.7 | OK |
 | P09 | Edema | 554 | 3.7 | OK |
 | P10 | 20.4 Retorno venoso y choque circulatorio | 1972 | 13.1 | OK |
-| P11 | 20.5 Rutas circulatorias especiales; 20.6 Anatomía del circuito pulmonar | 1434 | 9.6 | OK |
-| P12 | 20.7 Vasos sistémicos de la región de la cabeza y el tronco | 7222 | 48.1 | >20 min (sin sub-subtítulos) |
-| P13 | 20.8 Vasos sistémicos de las extremidades | 5057 | 33.7 | >20 min (sin sub-subtítulos) |
+| P11 | 20.5 Rutas circulatorias especiales; 20.6 Anatomía del circuito pulmonar; 20.7 Vasos sistémicos de la región de la cabeza y el tronco (introducción) | 2078 | 13.9 | OK |
+| P12 | CUADRO veinte coma dos La aorta y sus ramas principales; CUADRO veinte coma tres Arterias de la cabeza y el cuello | 1348 | 9.0 | OK |
+| P13 | CUADRO veinte coma cuatro Venas de la cabeza y el cuello; CUADRO veinte coma cinco Arterias del tórax | 1660 | 11.1 | OK |
+| P14 | CUADRO veinte coma seis Venas del tórax | 776 | 5.2 | OK |
+| P15 | CUADRO veinte coma siete Arterias de la región abdominal y pélvica | 1731 | 11.5 | OK |
+| P16 | CUADRO veinte coma ocho Venas de la región abdominal y pélvica; 20.8 Vasos sistémicos de las extremidades; CUADRO veinte coma nueve Arterias de las extremidades superiores | 1899 | 12.7 | OK |
+| P17 | CUADRO veinte coma un cero Venas de la extremidad superior; CUADRO veinte coma un un Arterias de la extremidad inferior | 1844 | 12.3 | OK |
+| P18 | CUADRO veinte coma un dos Venas de la extremidad inferior | 806 | 5.4 | OK |
+| P19 | CUADRO veinte coma un tres Algunos trastornos de las arterias y las venas | 1571 | 10.5 | OK |
 
 ### Tema_21_Morfo_Saladin — Los sistemas linfático e inmunitario (Saladin, 24370 pal., ~162.5 min)
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | 21.1 El sistema linfático (introducción) | 1085 | 7.2 | OK |
-| P02 | La linfa y los vasos linfáticos; Células linfáticas | 2122 | 14.1 | OK |
+| P02 | La linfa y los vasos linfáticos; Células linfáticas; Tejidos linfáticos | 2122 | 14.1 | OK |
 | P03 | Órganos linfáticos | 2893 | 19.3 | OK |
 | P04 | 21.2 Resistencia inespecífica; Barreras externas; Leucocitos y macrófagos | 1495 | 10.0 | OK |
 | P05 | Proteínas antimicrobianas; Vigilancia inmunitaria; Fiebre | 2062 | 13.7 | OK |
@@ -525,8 +541,10 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P07 | 21.3 Aspectos generales de inmunidad específica | 2522 | 16.8 | OK |
 | P08 | 21.4 Inmunidad celular; 21.5 Inmunidad humoral; Reconocimiento | 2006 | 13.4 | OK |
 | P09 | Ataque | 1586 | 10.6 | OK |
-| P10 | Memoria; 21.6 Trastornos del sistema inmunitario; Hipersensitividad; Trastornos autoinmunitarios | 2407 | 16.0 | OK |
-| P11 | Enfermedades por inmunodeficiencia | 3984 | 26.6 | >20 min (sin sub-subtítulos) |
+| P10 | Memoria; 21.6 Trastornos del sistema inmunitario; Hipersensitividad | 2131 | 14.2 | OK |
+| P11 | Trastornos autoinmunitarios; Enfermedades por inmunodeficiencia; Inmunodeficiencia combinada grave | 988 | 6.6 | OK |
+| P12 | Síndrome de inmunodeficiencia adquirida | 1873 | 12.5 | OK |
+| P13 | CUADRO veintiuno coma seis Algunos trastornos de los sistemas linfático e inmunitario | 1399 | 9.3 | OK |
 
 ### Tema_22_Morfo_Saladin — El aparato respiratorio (Saladin, 24738 pal., ~164.9 min)
 

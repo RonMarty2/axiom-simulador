@@ -1,211 +1,281 @@
 {
- "capitulo": "Saladin_tema_20",
- "libro": "Saladin",
- "titulo_capitulo": "El aparato circulatorio: vasos sanguíneos y circulación",
- "palabras_texto": 29140,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "20.1",
-   "titulo": "Anatomía general de los vasos sanguíneos",
-   "palabra": 98,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Pared vascular",
-   "palabra": 246,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Arterias",
-   "palabra": 1150,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Capilares",
-   "palabra": 2557,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Venas",
-   "palabra": 3685,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Rutas circulatorias",
-   "palabra": 4577,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.2",
-   "titulo": "Presión arterial, resistencia y circulación sanguíneas",
-   "palabra": 5067,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Presión arterial",
-   "palabra": 5570,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Resistencia periférica",
-   "palabra": 6903,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Regulación de la presión arterial y la circulación sanguínea",
-   "palabra": 8471,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Dos objetivos de la vasomotilidad",
-   "palabra": 9966,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.3",
-   "titulo": "Intercambio capilar",
-   "palabra": 10698,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Difusión",
-   "palabra": 11383,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Transcitosis",
-   "palabra": 11540,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Filtración y reabsorción",
-   "palabra": 11654,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Edema",
-   "palabra": 12901,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.4",
-   "titulo": "Retorno venoso y choque circulatorio",
-   "palabra": 13455,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Mecanismos del retorno venoso",
-   "palabra": 13787,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Retorno venoso y actividad física",
-   "palabra": 14297,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Choque circulatorio",
-   "palabra": 14709,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.5",
-   "titulo": "Rutas circulatorias especiales",
-   "palabra": 15427,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Encéfalo",
-   "palabra": 15553,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Músculos estriados",
-   "palabra": 16045,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Pulmones",
-   "palabra": 16237,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.6",
-   "titulo": "Anatomía del circuito pulmonar",
-   "palabra": 16530,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.7",
-   "titulo": "Vasos sistémicos de la región de la cabeza y el tronco",
-   "palabra": 16861,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "20.8",
-   "titulo": "Vasos sistémicos de las extremidades",
-   "palabra": 24083,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Temas de conexión",
-   "palabra": null,
-   "narrable": false
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Guía de estudio",
-   "palabra": null,
-   "narrable": false
-  }
- ]
+  "capitulo": "Saladin_tema_20",
+  "libro": "Saladin",
+  "titulo_capitulo": "El aparato circulatorio: vasos sanguíneos y circulación",
+  "palabras_texto": 29124,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "20.1",
+      "titulo": "Anatomía general de los vasos sanguíneos",
+      "palabra": 101,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Pared vascular",
+      "palabra": 246,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Arterias",
+      "palabra": 1150,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Capilares",
+      "palabra": 2557,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Venas",
+      "palabra": 3685,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Rutas circulatorias",
+      "palabra": 4578,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.2",
+      "titulo": "Presión arterial, resistencia y circulación sanguíneas",
+      "palabra": 5071,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Presión arterial",
+      "palabra": 5571,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Resistencia periférica",
+      "palabra": 6903,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Regulación de la presión arterial y la circulación sanguínea",
+      "palabra": 8469,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Dos objetivos de la vasomotilidad",
+      "palabra": 9964,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.3",
+      "titulo": "Intercambio capilar",
+      "palabra": 10698,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Difusión",
+      "palabra": 11379,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Transcitosis",
+      "palabra": 11536,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Filtración y reabsorción",
+      "palabra": 11650,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Edema",
+      "palabra": 12896,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.4",
+      "titulo": "Retorno venoso y choque circulatorio",
+      "palabra": 13453,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Mecanismos del retorno venoso",
+      "palabra": 13782,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Retorno venoso y actividad física",
+      "palabra": 14292,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Choque circulatorio",
+      "palabra": 14707,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.5",
+      "titulo": "Rutas circulatorias especiales",
+      "palabra": 15424,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Encéfalo",
+      "palabra": 15553,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Músculos estriados",
+      "palabra": 16047,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Pulmones",
+      "palabra": 16231,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.6",
+      "titulo": "Anatomía del circuito pulmonar",
+      "palabra": 16527,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.7",
+      "titulo": "Vasos sistémicos de la región de la cabeza y el tronco",
+      "palabra": 16858,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma dos La aorta y sus ramas principales",
+      "palabra": 17496,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma tres Arterias de la cabeza y el cuello",
+      "palabra": 17701,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma cuatro Venas de la cabeza y el cuello",
+      "palabra": 18842,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma cinco Arterias del tórax",
+      "palabra": 19844,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma seis Venas del tórax",
+      "palabra": 20500,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma siete Arterias de la región abdominal y pélvica",
+      "palabra": 21275,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma ocho Venas de la región abdominal y pélvica",
+      "palabra": 23005,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "20.8",
+      "titulo": "Vasos sistémicos de las extremidades",
+      "palabra": 24072,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte coma nueve Arterias de las extremidades superiores",
+      "palabra": 24432,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte punto diez Venas de la extremidad superior",
+      "palabra": 24906,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte punto once Arterias de la extremidad inferior",
+      "palabra": 25892,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte punto doce Venas de la extremidad inferior",
+      "palabra": 26749,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veinte punto trece Algunos trastornos de las arterias y las venas",
+      "palabra": 27555,
+      "narrable": true
+    }
+  ]
 }

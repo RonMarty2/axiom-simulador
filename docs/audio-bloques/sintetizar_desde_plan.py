@@ -774,22 +774,38 @@ def procesar_capitulo(
         print(f"[SECO] Convertiria a MP3: {ruta_mp3_final}")
         print(f"[SECO] Escribiria manifiesto: {ruta_manifiesto}")
     elif all(_wav_valido(p) for p in partes_wav):
-        dir_audio_v2.mkdir(parents=True, exist_ok=True)
-        concatenar_archivos_wav([str(p) for p in partes_wav], str(ruta_wav_final))
-        mp3_generado = convertir_wav_a_mp3(str(ruta_wav_final), str(ruta_mp3_final))
-        dir_cache_v2.mkdir(parents=True, exist_ok=True)
-        ruta_manifiesto.write_text(
-            json.dumps(registros_manifiesto, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
+        ya_armado = (
+            sintetizados == 0
+            and reusados == 0
+            and copiados_viejos == 0
+            and _wav_valido(ruta_wav_final)
+            and ruta_mp3_final.is_file()
+            and ruta_mp3_final.stat().st_size > 1000
+            and ruta_manifiesto.is_file()
+            and ruta_wav_final.stat().st_mtime >= max(p.stat().st_mtime for p in partes_wav)
         )
-        armado = True
-        print("")
-        print(f"WAV armado: {ruta_wav_final}")
-        if mp3_generado:
-            print(f"MP3 armado: {ruta_mp3_final}")
+        if ya_armado:
+            armado = True
+            mp3_generado = True
+            print("")
+            print(f"WAV/MP3 ya vigentes (sin cambios): {ruta_wav_final}")
         else:
-            print("Aviso: ffmpeg no disponible o fallo; se genero solo WAV.")
-        print(f"Manifiesto escrito: {ruta_manifiesto}")
+            dir_audio_v2.mkdir(parents=True, exist_ok=True)
+            concatenar_archivos_wav([str(p) for p in partes_wav], str(ruta_wav_final))
+            mp3_generado = convertir_wav_a_mp3(str(ruta_wav_final), str(ruta_mp3_final))
+            dir_cache_v2.mkdir(parents=True, exist_ok=True)
+            ruta_manifiesto.write_text(
+                json.dumps(registros_manifiesto, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            armado = True
+            print("")
+            print(f"WAV armado: {ruta_wav_final}")
+            if mp3_generado:
+                print(f"MP3 armado: {ruta_mp3_final}")
+            else:
+                print("Aviso: ffmpeg no disponible o fallo; se genero solo WAV.")
+            print(f"Manifiesto escrito: {ruta_manifiesto}")
     else:
         faltantes = [p.name for p in partes_wav if not _wav_valido(p)]
         print("")

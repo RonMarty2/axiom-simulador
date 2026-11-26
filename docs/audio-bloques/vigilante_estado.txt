@@ -292,43 +292,130 @@
 20-12:39 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 20-13:10 sin cuota, espero 30 min
 20-13:17 sin cuota, espero 30 min
-20-16:31 vigilante arranca en RonMarty
-20-16:31 cuota OK, grabando
-20-16:31 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-20-16:31 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-20-16:32 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-20-17:35 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=373, rondas_agotadas=32).
-21-18:09 sin cuota, espero 30 min
-21-18:35 vigilante arranca en RonMarty-9fb9
-21-18:37 vigilante arranca en RonMarty-9fb9
-21-18:37 cuota OK, grabando
-21-19:18 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=156, rondas_agotadas=12).
-21-19:20 vigilante arranca en RonMarty-9fb9
-21-19:33 vigilante arranca en RonMarty-9fb9
-21-19:37 vigilante arranca en RonMarty-9fb9
-21-19:38 sin cuota, espero 30 min
-23-10:07 cuota OK, grabando
-23-10:37 vigilante arranca en RonMarty-9fb9
-23-10:38 sin cuota, espero 30 min
-23-11:08 sin cuota, espero 30 min
-23-11:21   [Aviso 429/error] Rotando clave (1/9) en modelo gemini-3.1-flash-tts-preview: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
-23-11:21 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=415, rondas_agotadas=39).
-23-11:21 3 capitulos esperan aceptacion de texto; reviso en 30 min
-23-11:38 sin cuota, espero 30 min
-23-11:51 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-9fb9 74564
-23-12:09 sin cuota, espero 30 min
-23-16:07 cuota OK, grabando
-23-16:08 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-23-16:08 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-23-17:16   [Aviso 429/error] Rotando clave (1/9) en modelo gemini-3.1-flash-tts-preview: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
-23-17:16 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=373, rondas_agotadas=31).
-24-07:55 vigilante arranca en RonMarty-9fb9
-24-07:55 cuota OK, grabando
-24-07:55 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-24-07:56 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-24-08:49 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=20, sintetizados=116, copiados_viejos=0, retomados=1, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=45, rondas_agotadas=0, armado=True
-24-09:40 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=339, rondas_agotadas=33).
-24-12:45 cuota OK, grabando
-24-12:46 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-24-12:46 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-24-12:47 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-18:52 cuota OK, grabando
+20-18:52 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-18:52 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-18:52 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-19:07 vigilante arranca en RonMarty-f374
+20-19:08 cuota OK, grabando
+20-19:08 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-19:08 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-19:09 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-20:13 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=409, rondas_agotadas=35).
+20-20:44 sin cuota, espero 30 min
+20-21:14 sin cuota, espero 30 min
+20-21:44 cuota OK, grabando
+20-21:45 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-21:45 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-22:54 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=409, rondas_agotadas=34).
+20-22:54 1 capitulos esperan aceptacion de texto; reviso en 30 min
+20-23:25 sin cuota, espero 30 min
+20-23:35 sin cuota, espero 30 min
+21-06:22 vigilante arranca en RonMarty-f374
+21-06:22 cuota OK, grabando
+21-06:23 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+21-06:23 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+21-06:56 Resumen (Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS): total=152, reusados=58, sintetizados=93, copiados_viejos=0, retomados=1, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=8, rondas_agotadas=0, armado=True
+21-08:15 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=464, rondas_agotadas=32).
+21-08:46 sin cuota, espero 30 min
+21-08:51 sin cuota, espero 30 min
+21-08:53 sin cuota, espero 30 min
+21-08:54 sin cuota, espero 30 min
+21-09:00 sin cuota, espero 30 min
+21-09:31 cuota OK, grabando
+21-09:50 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=10, copiados_viejos=0, retomados=65, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=104, rondas_agotadas=8, armado=True
+21-10:06 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=4, copiados_viejos=0, retomados=112, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=102, rondas_agotadas=9, armado=True
+21-10:29 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=145, rondas_agotadas=14).
+21-10:56 sin cuota, espero 30 min
+21-10:57 cuota OK, grabando
+21-11:17 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=129, rondas_agotadas=12).
+21-11:33 sin cuota, espero 30 min
+21-11:34 sin cuota, espero 30 min
+21-12:05 cuota OK, grabando
+21-13:10 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=416, rondas_agotadas=37).
+21-21:34 vigilante arranca en RonMarty-f374
+21-21:34 cuota OK, grabando
+21-21:55 vigilante arranca en RonMarty-f374
+21-22:04 vigilante arranca en RonMarty-f374
+21-22:04 cuota OK, grabando
+22-06:37 vigilante arranca en RonMarty-f374
+22-06:37 cuota OK, grabando
+22-07:22 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=41, sintetizados=101, copiados_viejos=0, retomados=4, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=16, rondas_agotadas=0, armado=True
+22-08:38 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=440, rondas_agotadas=30).
+22-08:38 3 capitulos esperan aceptacion de texto; reviso en 30 min
+22-08:44 sin cuota, espero 30 min
+22-08:46 sin cuota, espero 30 min
+22-08:47 sin cuota, espero 30 min
+22-08:50 sin cuota, espero 30 min
+22-08:51 sin cuota, espero 30 min
+22-08:54 sin cuota, espero 30 min
+22-08:55 sin cuota, espero 30 min
+22-08:57 sin cuota, espero 30 min
+22-09:27 sin cuota, espero 30 min
+22-10:08 cuota OK, grabando
+22-10:46 EdS EdS_Parte3_1_LITERAL_TTS: Concatenando 122 fragmentos en archivo máster...
+22-10:46 EdS EdS_Parte3_1_LITERAL_TTS: [EXITO] Archivo WAV generado: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_1_LITERAL_TTS.wav
+22-10:46 EdS EdS_Parte3_1_LITERAL_TTS: [EXITO] Versión MP3 comprimida: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_1_LITERAL_TTS.mp3
+22-10:51 EdS EdS_Parte3_3_LITERAL_TTS: Concatenando 15 fragmentos en archivo máster...
+22-10:51 EdS EdS_Parte3_3_LITERAL_TTS: [EXITO] Archivo WAV generado: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_3_LITERAL_TTS.wav
+22-10:51 EdS EdS_Parte3_3_LITERAL_TTS: [EXITO] Versión MP3 comprimida: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_3_LITERAL_TTS.mp3
+22-10:51 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+22-12:22 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=561, rondas_agotadas=45).
+22-12:22 1 capitulos esperan aceptacion de texto; reviso en 30 min
+22-12:53 sin cuota, espero 30 min
+22-12:55 sin cuota, espero 30 min
+22-12:58 sin cuota, espero 30 min
+22-13:00 sin cuota, espero 30 min
+22-13:19 sin cuota, espero 30 min
+22-13:20 sin cuota, espero 30 min
+22-13:51 cuota OK, grabando
+22-17:32 vigilante arranca en RonMarty-f374
+22-17:32 cuota OK, grabando
+22-17:50 EdS EdS_Parte3_2_LITERAL_TTS: Concatenando 130 fragmentos en archivo máster...
+22-17:50 EdS EdS_Parte3_2_LITERAL_TTS: [EXITO] Archivo WAV generado: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_2_LITERAL_TTS.wav
+22-17:50 EdS EdS_Parte3_2_LITERAL_TTS: [EXITO] Versión MP3 comprimida: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte3_2_LITERAL_TTS.mp3
+22-17:50 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+22-18:46 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=257, rondas_agotadas=16).
+22-19:18 sin cuota, espero 30 min
+22-19:50 sin cuota, espero 30 min
+22-20:05 cuota OK, grabando
+22-20:06 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+22-21:02 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=346, rondas_agotadas=26).
+22-21:33 sin cuota, espero 30 min
+22-22:03 cuota OK, grabando
+22-22:03 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+22-22:57 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=311, rondas_agotadas=26).
+22-23:29 sin cuota, espero 30 min
+23-07:13 vigilante arranca en RonMarty-f374
+23-07:13 cuota OK, grabando
+23-07:14 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-08:00 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=34, sintetizados=119, copiados_viejos=0, retomados=3, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=34, rondas_agotadas=0, armado=True
+23-09:07 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=384, rondas_agotadas=31).
+23-18:56 vigilante arranca en RonMarty-f374
+23-18:56 cuota OK, grabando
+23-18:57 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-18:57 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-20:16 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=428, rondas_agotadas=35).
+23-20:47 sin cuota, espero 30 min
+23-21:17 sin cuota, espero 30 min
+23-21:48 cuota OK, grabando
+23-21:48 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-21:48 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-23:10 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=410, rondas_agotadas=30).
+24-20:49 vigilante arranca en RonMarty-f374
+24-20:50 cuota OK, grabando
+24-20:51 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+24-20:52 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+24-21:39 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=256, rondas_agotadas=15).
+24-22:10 sin cuota, espero 30 min
+24-22:40 sin cuota, espero 30 min
+25-07:56 cuota OK, grabando
+25-07:56 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-f374 16496
+25-08:06 vigilante arranca en RonMarty-9fb9
+25-08:07 vigilante arranca en RonMarty-9fb9
+25-08:07 cuota OK, grabando
+25-08:07 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-08:07 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-08:08 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-10:23   [Aviso 429/error] Rotando clave (7/9) en modelo gemini-3.1-flash-tts-preview: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
+25-10:23 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=324, rondas_agotadas=25).

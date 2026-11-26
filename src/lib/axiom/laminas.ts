@@ -243,9 +243,18 @@ export const LAMINAS: FacultadLaminas[] = [
   },
   {
     facultad: "medicina",
-    area: "matematicas",
-    areaLabel: "Matemáticas",
-    modulos: MODULOS_MATEMATICAS,
+    area: "morfofuncion_matematicas",
+    areaLabel: "Morfofunción y Matemáticas",
+    modulos: [
+      {
+        slug: "morfofuncion-cardiovascular",
+        titulo: "Morfofunción · Sistema cardiovascular y hemostasia",
+        laminas: [
+          { slug: "hemostasia-y-vasos", titulo: "Hemostasia y vasos sanguíneos (arterias, venas y coagulación)", publicada: true },
+        ],
+      },
+      ...MODULOS_MATEMATICAS,
+    ],
   },
 ];
 

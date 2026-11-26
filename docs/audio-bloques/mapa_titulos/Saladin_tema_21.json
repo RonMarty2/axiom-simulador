@@ -1,225 +1,232 @@
 {
- "capitulo": "Saladin_tema_21",
- "libro": "Saladin",
- "titulo_capitulo": "Los sistemas linfático e inmunitario",
- "palabras_texto": 24370,
- "titulos": [
-  {
-   "nivel": 1,
-   "numero": "21.1",
-   "titulo": "El sistema linfático",
-   "palabra": 202,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "La linfa y los vasos linfáticos",
-   "palabra": 1085,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Células linfáticas",
-   "palabra": 2419,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Tejidos linfáticos",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Órganos linfáticos",
-   "palabra": 3207,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "21.2",
-   "titulo": "Resistencia inespecífica",
-   "palabra": 6100,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Barreras externas",
-   "palabra": 6450,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Leucocitos y macrófagos",
-   "palabra": 6902,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Proteínas antimicrobianas",
-   "palabra": 7595,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Vigilancia inmunitaria",
-   "palabra": 8574,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Fiebre",
-   "palabra": 8725,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Inflamación",
-   "palabra": 9657,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "21.3",
-   "titulo": "Aspectos generales de inmunidad específica",
-   "palabra": 11865,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Formas de inmunidad",
-   "palabra": 12125,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Antígenos",
-   "palabra": 12831,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Linfocitos",
-   "palabra": 13141,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Células presentadoras de antígenos",
-   "palabra": 13944,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "21.4",
-   "titulo": "Inmunidad celular",
-   "palabra": 14387,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Reconocimiento",
-   "palabra": 14792,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Ataque",
-   "palabra": 15351,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Memoria",
-   "palabra": 15653,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "21.5",
-   "titulo": "Inmunidad humoral",
-   "palabra": 15935,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Reconocimiento",
-   "palabra": 16065,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Ataque",
-   "palabra": 16393,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Memoria",
-   "palabra": 17979,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "21.6",
-   "titulo": "Trastornos del sistema inmunitario",
-   "palabra": 19187,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Hipersensitividad",
-   "palabra": 19320,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Trastornos autoinmunitarios",
-   "palabra": 20110,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Enfermedades por inmunodeficiencia",
-   "palabra": 20386,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Temas de conexión",
-   "palabra": null,
-   "narrable": false
-  },
-  {
-   "nivel": 1,
-   "numero": "",
-   "titulo": "Guía de estudio",
-   "palabra": null,
-   "narrable": false
-  }
- ]
+  "capitulo": "Saladin_tema_21",
+  "libro": "Saladin",
+  "titulo_capitulo": "Los sistemas linfático e inmunitario",
+  "palabras_texto": 24370,
+  "titulos": [
+    {
+      "nivel": 1,
+      "numero": "21.1",
+      "titulo": "El sistema linfático",
+      "palabra": 202,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "La linfa y los vasos linfáticos",
+      "palabra": 1085,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Células linfáticas",
+      "palabra": 2419,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Tejidos linfáticos",
+      "palabra": 3040,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Órganos linfáticos",
+      "palabra": 3207,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "21.2",
+      "titulo": "Resistencia inespecífica",
+      "palabra": 6100,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Barreras externas",
+      "palabra": 6450,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Leucocitos y macrófagos",
+      "palabra": 6902,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Proteínas antimicrobianas",
+      "palabra": 7595,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Vigilancia inmunitaria",
+      "palabra": 8574,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Fiebre",
+      "palabra": 8725,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Inflamación",
+      "palabra": 9657,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "21.3",
+      "titulo": "Aspectos generales de inmunidad específica",
+      "palabra": 11865,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Formas de inmunidad",
+      "palabra": 12125,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Antígenos",
+      "palabra": 12831,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Linfocitos",
+      "palabra": 13141,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Células presentadoras de antígenos",
+      "palabra": 13944,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "21.4",
+      "titulo": "Inmunidad celular",
+      "palabra": 14387,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Reconocimiento",
+      "palabra": 14792,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Ataque",
+      "palabra": 15351,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Memoria",
+      "palabra": 15653,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "21.5",
+      "titulo": "Inmunidad humoral",
+      "palabra": 15935,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Reconocimiento",
+      "palabra": 16065,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Ataque",
+      "palabra": 16393,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Memoria",
+      "palabra": 17979,
+      "narrable": true
+    },
+    {
+      "nivel": 1,
+      "numero": "21.6",
+      "titulo": "Trastornos del sistema inmunitario",
+      "palabra": 19187,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Hipersensitividad",
+      "palabra": 19320,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Trastornos autoinmunitarios",
+      "palabra": 20110,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Enfermedades por inmunodeficiencia",
+      "palabra": 20386,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Inmunodeficiencia combinada grave",
+      "palabra": 20940,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "Síndrome de inmunodeficiencia adquirida",
+      "palabra": 21098,
+      "narrable": true
+    },
+    {
+      "nivel": 2,
+      "numero": "",
+      "titulo": "CUADRO veintiuno coma seis Algunos trastornos de los sistemas linfático e inmunitario",
+      "palabra": 22971,
+      "narrable": true
+    }
+  ]
 }

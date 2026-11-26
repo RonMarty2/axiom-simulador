@@ -834,6 +834,12 @@
       "contiene": "FIGURA ocho coma dos ocho. Anatomía de las costillas",
       "motivo": "pie oficial de figura 8.28 verbalizado con ordinales primera/segunda",
       "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "FIGURA ocho punto veintiocho. Anatomía de las costillas.",
+      "motivo": "Pie literal FIGURA 8.28 verbalizado (punto veintiocho en vez de coma dos ocho); 71% por etiquetas a/b/c (25-11)",
+      "reviso": "Antigravity 25-11"
     }
   ],
   "Tema_18_Morfo_Saladin_LITERAL_TTS": [

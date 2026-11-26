@@ -85,3 +85,6 @@ Cerrá con una sola pregunta, respondida: **¿lo aprobaría un ingeniero senior 
 ## Regla principal de Ronald (6-nov-2026): lo visible se muestra en la tablet
 > **16-11, Ronald: solo si la tablet está conectada (`adb devices`); si no, basta la emulación en navegador a 3 tamaños, sin mencionar la tablet ni frenar nada.**
 Si el diff toca `src/**/*.tsx|css` (algo que se ve en pantalla) y la sesión no dejó la dirección para la tablet, los pasos en la app y el antes/después (`node scripts/ver-en-tablet.mjs /<ruta>`), repórtalo como hallazgo: el cambio no está terminado. Ver `CLAUDE.md`, regla 9.
+
+## Preservación en rediseños de UI (23-11, idea de hallmark)
+- Si el cambio rediseña o refactoriza una pantalla existente, comprueba que **ningún botón, enlace, formulario o handler activo previo desapareció ni quedó desconectado** (salvo que Ronald haya pedido quitarlo explícitamente). Repórtalo como hallazgo si falta algo.
