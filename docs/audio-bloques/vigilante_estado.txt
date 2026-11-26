@@ -409,13 +409,9 @@
 24-21:39 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=256, rondas_agotadas=15).
 24-22:10 sin cuota, espero 30 min
 24-22:40 sin cuota, espero 30 min
-25-07:56 cuota OK, grabando
-25-07:56 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-f374 16496
-25-08:06 vigilante arranca en RonMarty-9fb9
-25-08:07 vigilante arranca en RonMarty-9fb9
-25-08:07 cuota OK, grabando
-25-08:07 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-25-08:07 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-25-08:08 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
-25-10:23   [Aviso 429/error] Rotando clave (7/9) en modelo gemini-3.1-flash-tts-preview: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
-25-10:23 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=324, rondas_agotadas=25).
+25-20:24 vigilante arranca en RonMarty-f374
+25-20:25 cuota OK, grabando
+25-20:25 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-20:25 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-20:25 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-20:31 sin cuota, espero 30 min
