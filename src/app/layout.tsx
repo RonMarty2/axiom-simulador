@@ -19,16 +19,21 @@ const atkinson = Atkinson_Hyperlegible({
   variable: "--font-atkinson",
 });
 
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://axiom-simulador.vercel.app")
+).replace(/\/+$/, "");
+
 export async function generateMetadata(): Promise<Metadata> {
   const total = await totalExamenes();
   return {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://axiom-simulador.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "AXIOM — Simulador UMSS | Exámenes Reales Resueltos Paso a Paso",
     template: "%s | AXIOM — Simulador UMSS",
   },
   description:
-    `Plataforma de preparación para el examen de admisión UMSS (Cochabamba). ${total} exámenes reales de Medicina, Tecnología, Ciencias Económicas y Derecho resueltos paso a paso.`,
+    `Plataforma de preparación para el examen de admisión UMSS (Cochabamba). ${total} exámenes reales de Medicina, Tecnología y Ciencias Económicas resueltos paso a paso.`,
   keywords: [
     "examen admision umss 2025",
     "simulador umss cochabamba",
@@ -72,7 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
     card: "summary_large_image",
     title: "AXIOM — Simulador UMSS | Exámenes Reales Resueltos",
     description:
-      `${total} exámenes reales de San Simón resueltos paso a paso. Medicina, Tecnología, Económicas y Derecho.`,
+      `${total} exámenes reales de San Simón resueltos paso a paso. Medicina, Tecnología y Económicas.`,
     images: ["/images/og-share.jpg"],
   },
   alternates: {
@@ -96,16 +101,16 @@ const jsonLdData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://axiom-simulador.com/#organization",
+      "@id": `${SITE_URL}/#organization`,
       "name": "AXIOM — Simulador UMSS",
-      "url": "https://axiom-simulador.com",
-      "logo": "https://axiom-simulador.com/images/og-share.jpg",
+      "url": SITE_URL,
+      "logo": `${SITE_URL}/images/og-share.jpg`,
       "description":
         "Plataforma de preparación para el examen de admisión a la Universidad Mayor de San Simón (UMSS) en Cochabamba, Bolivia.",
     },
     {
       "@type": "EducationalApplication",
-      "@id": "https://axiom-simulador.com/#application",
+      "@id": `${SITE_URL}/#application`,
       "name": "AXIOM Simulador UMSS",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "All",
@@ -118,11 +123,11 @@ const jsonLdData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://axiom-simulador.com/#website",
-      "url": "https://axiom-simulador.com",
+      "@id": `${SITE_URL}/#website`,
+      "url": SITE_URL,
       "name": "AXIOM — Simulador UMSS",
       "publisher": {
-        "@id": "https://axiom-simulador.com/#organization",
+        "@id": `${SITE_URL}/#organization`,
       },
     },
   ],

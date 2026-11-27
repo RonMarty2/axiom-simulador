@@ -1,11 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { extraerSlugAprende, obtenerAudiolibro } from "@/lib/audio-medicina";
-import { marcarLeccionCompletada } from "@/lib/axiom/progreso-lecciones";
+import {
+  guardarEscenaLeccion,
+  leerEscenaLeccion,
+  limpiarEscenaLeccion,
+  marcarLeccionCompletada,
+} from "@/lib/axiom/progreso-lecciones";
 import { LIENZO } from "./lienzo";
 import ReproductorAudiolibro from "./ReproductorAudiolibro";
 
@@ -24,18 +29,59 @@ export type LeccionShellProps = {
 // header/footer sticky con blur, barra de progreso violeta.
 export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionShellProps) {
   const [i, setI] = useState(0);
+  const [usuarioId, setUsuarioId] = useState<string | null>(null);
+  const [escenaCargada, setEscenaCargada] = useState(false);
+  const interactuoRef = useRef(false);
   const pathname = usePathname();
   const slug = extraerSlugAprende(pathname);
   const audiolibro = slug ? obtenerAudiolibro(slug) : null;
-  const EscenaComp = escenas[i].componente;
-  const progreso = ((i + 1) / escenas.length) * 100;
-  const esUltima = i === escenas.length - 1;
+  const indiceSeguro = Math.max(0, Math.min(escenas.length - 1, i));
+  const EscenaComp = escenas[indiceSeguro].componente;
+  const progreso = ((indiceSeguro + 1) / escenas.length) * 100;
+  const esUltima = indiceSeguro === escenas.length - 1;
 
+  // Identifica al usuario activo y restaura su última escena vista de esta lección.
   useEffect(() => {
-    if (slug && esUltima) {
-      marcarLeccionCompletada(slug);
+    let cancelado = false;
+    const aplicarSesion = (uid: string | null) => {
+      if (cancelado) return;
+      setUsuarioId(uid);
+      if (slug && !interactuoRef.current) {
+        setI(leerEscenaLeccion(slug, escenas.length, uid));
+      }
+      setEscenaCargada(true);
+    };
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((d) => aplicarSesion(typeof d?.usuario?.id === "string" ? d.usuario.id : null))
+      .catch(() => aplicarSesion(null));
+    return () => { cancelado = true; };
+  }, [slug, escenas.length]);
+
+  // Persiste la escena actual y marca completada al llegar a la última.
+  useEffect(() => {
+    if (!escenaCargada || !slug) return;
+    guardarEscenaLeccion(slug, indiceSeguro, escenas.length, usuarioId);
+    if (esUltima) {
+      marcarLeccionCompletada(slug, usuarioId);
     }
-  }, [slug, esUltima]);
+  }, [escenaCargada, slug, indiceSeguro, escenas.length, usuarioId, esUltima]);
+
+  const irAnterior = () => {
+    interactuoRef.current = true;
+    setI((v) => Math.max(0, v - 1));
+  };
+
+  const irSiguiente = () => {
+    interactuoRef.current = true;
+    setI((v) => Math.min(escenas.length - 1, v + 1));
+  };
+
+  const finalizarLeccion = () => {
+    if (!slug) return;
+    marcarLeccionCompletada(slug, usuarioId);
+    limpiarEscenaLeccion(slug, usuarioId);
+  };
 
   return (
     <div style={{ minHeight: "100vh", background: LIENZO.bg, display: "flex", flexDirection: "column", color: LIENZO.fg }}>
@@ -57,11 +103,11 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
             Unidad {unidad} · {tituloUnidad}
           </div>
           <div className="font-crimson" style={{ fontSize: 17, fontWeight: 500, color: LIENZO.fg, letterSpacing: "-0.01em" }}>
-            {escenas[i].titulo}
+            {escenas[indiceSeguro].titulo}
           </div>
         </div>
         <div style={{ fontSize: 12, color: LIENZO.fgFaint, fontWeight: 500 }}>
-          {i + 1} / {escenas.length}
+          {indiceSeguro + 1} / {escenas.length}
         </div>
       </header>
 
@@ -84,7 +130,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
         )}
         <AnimatePresence mode="wait">
           <motion.div
-            key={i}
+            key={indiceSeguro}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
@@ -105,22 +151,22 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
         position: "sticky", bottom: 0,
       }}>
         <button
-          onClick={() => setI((v) => Math.max(0, v - 1))}
-          disabled={i === 0}
+          onClick={irAnterior}
+          disabled={indiceSeguro === 0}
           style={{
             display: "inline-flex", alignItems: "center", justifyContent: "center",
             minHeight: 44, padding: "10px 18px", background: "transparent",
             border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 999,
-            color: i === 0 ? LIENZO.fgFaint : LIENZO.fg,
+            color: indiceSeguro === 0 ? LIENZO.fgFaint : LIENZO.fg,
             fontSize: 14, fontWeight: 500,
-            cursor: i === 0 ? "not-allowed" : "pointer", opacity: i === 0 ? 0.5 : 1,
+            cursor: indiceSeguro === 0 ? "not-allowed" : "pointer", opacity: indiceSeguro === 0 ? 0.5 : 1,
           }}
         >
           ← Anterior
         </button>
         {!esUltima ? (
           <button
-            onClick={() => setI((v) => v + 1)}
+            onClick={irSiguiente}
             style={{
               display: "inline-flex", alignItems: "center", justifyContent: "center",
               minHeight: 44, padding: "10px 24px", background: LIENZO.accent,
@@ -134,7 +180,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
             <Link
               href="/aprende"
-              onClick={() => { if (slug) marcarLeccionCompletada(slug); }}
+              onClick={finalizarLeccion}
               style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 minHeight: 44, padding: "10px 18px", background: "transparent",
@@ -147,7 +193,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
             </Link>
             <Link
               href="/practicar"
-              onClick={() => { if (slug) marcarLeccionCompletada(slug); }}
+              onClick={finalizarLeccion}
               style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
                 minHeight: 44, padding: "10px 20px", background: LIENZO.accent,

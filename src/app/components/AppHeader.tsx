@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { tieneLaminasPublicadas } from "@/lib/axiom/laminas";
 import Icono, { iconoFacultad } from "./Icono";
 
 interface SuscripcionMini { facultad: string; vence: string }
@@ -90,6 +91,7 @@ export default function AppHeader() {
   }, []);
 
   const facInfo = (id?: string | null) => facultades.find((f) => f.id === id);
+  const conLaminas = tieneLaminasPublicadas(usuario?.facultad_objetivo);
 
   const cambiarFacultad = async (facultad: string) => {
     if (cambiando || facultad === usuario?.facultad_objetivo) { setSelOpen(false); return; }
@@ -142,7 +144,11 @@ export default function AppHeader() {
                   en el menú del avatar. */}
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
               <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>Aprende</Link>
-              <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>Láminas</Link>
+              {conLaminas ? (
+                <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>Láminas</Link>
+              ) : (
+                <Link href="/progreso" style={navLink(pathname?.startsWith("/progreso"))}>Mi progreso</Link>
+              )}
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
               <Link href="/historial" style={navLink(pathname === "/historial")}>Historial</Link>
             </>
@@ -274,6 +280,7 @@ export default function AppHeader() {
                         <div style={{ fontSize: 11, color: "var(--fg-muted)" }}>{usuario.email}</div>
                         <div style={{ marginTop: 6, display: "inline-block", padding: "2px 8px", background: usuario.plan === "premium" ? "var(--plan-premium)" : usuario.plan === "pro" ? "var(--plan-pro)" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "var(--plan-tinta)", borderRadius: 999, fontSize: 10, fontWeight: 700, textTransform: "uppercase" }}>{usuario.plan}</div>
                       </div>
+                      <Link href="/progreso" onClick={() => setOpen(false)} style={menuItem()}>Mi progreso</Link>
                       <Link href="/debilidades" onClick={() => setOpen(false)} style={menuItem()}>Mis debilidades</Link>
                       <Link href="/resueltos" onClick={() => setOpen(false)} style={menuItem()}>Resueltos</Link>
                       <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
@@ -380,6 +387,7 @@ export default function AppHeader() {
             <>
               {/* En móvil, Inicio/Aprende/Láminas/Practicar/Exámenes ya están
                   en la barra inferior: acá van solo los secundarios. */}
+              <Link href="/progreso" style={menuMovilItem(pathname?.startsWith("/progreso"))} onClick={() => setMenuMovil(false)}>Mi progreso</Link>
               <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>Mis debilidades</Link>
               <Link href="/resueltos" style={menuMovilItem(pathname?.startsWith("/resueltos"))} onClick={() => setMenuMovil(false)}>Resueltos</Link>
               <Link href="/errores" style={menuMovilItem(pathname === "/errores")} onClick={() => setMenuMovil(false)}>Mis errores</Link>

@@ -398,7 +398,7 @@ function PracticarInner() {
                             etiqueta: "Examen anterior",
                             titulo,
                             detalle,
-                            config: base({ modo: "examen_real", examen_id: e.id }),
+                            config: base({ modo: "examen_real", examen_id: e.id, anio: e.anio }),
                             textoLimiteGratis: `Con el plan gratis tienes ${LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados por semana; este cuenta como uno.`,
                           })}
                         />

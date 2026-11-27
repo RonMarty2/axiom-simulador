@@ -269,3 +269,10 @@ export function obtenerModulo(facultad: string, moduloSlug: string): Modulo | un
 export function obtenerLamina(facultad: string, moduloSlug: string, laminaSlug: string): Lamina | undefined {
   return obtenerModulo(facultad, moduloSlug)?.laminas.find((l) => l.slug === laminaSlug);
 }
+
+export function tieneLaminasPublicadas(facultad?: string | null): boolean {
+  if (!facultad) return false;
+  const fac = obtenerFacultadLaminas(facultad);
+  if (!fac) return false;
+  return fac.modulos.some((m) => m.laminas.some((l) => l.publicada === true));
+}

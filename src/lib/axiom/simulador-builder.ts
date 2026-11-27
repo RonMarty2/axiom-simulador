@@ -11,7 +11,6 @@ import {
 import { cargarBanco, preguntasDeOrigenes } from "./banco-loader";
 import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
-import { esRespuestaCorrecta } from "./respuestas";
 import { getErroresUsuario } from "./errores-db";
 import { tocaRepasar, proximoRepaso } from "./repaso";
 import type {
@@ -246,91 +245,6 @@ export async function construirSimulador(
   return { simulador, examenOrigen };
 }
 
-export interface EvaluacionResultado {
-  nota_final: number;
-  desglose: Record<string, number>;
-  total_preguntas: number;
-  correctas: number;
-  incorrectas: number;
-  sin_responder: number;
-  tiempo_usado_segundos: number;
-}
-
-export function evaluarSimulador(
-  simulador: Simulador,
-  examenOrigen?: ExamenBanco
-): EvaluacionResultado {
-  const preguntas = simulador.preguntas ?? [];
-  if (preguntas.length === 0) {
-    return {
-      nota_final: 0,
-      desglose: {},
-      total_preguntas: 0,
-      correctas: 0,
-      incorrectas: 0,
-      sin_responder: 0,
-      tiempo_usado_segundos: 0,
-    };
-  }
-
-  const desgloseStats: Record<string, { correctas: number; total: number }> = {};
-  let correctas = 0;
-  let incorrectas = 0;
-  let sinResponder = 0;
-
-  for (const p of preguntas) {
-    const elegida = simulador.respuestas_usuario[p.id];
-    if (!desgloseStats[p.area]) {
-      desgloseStats[p.area] = { correctas: 0, total: 0 };
-    }
-    desgloseStats[p.area].total++;
-    if (!elegida) {
-      sinResponder++;
-    } else if (esRespuestaCorrecta(p, elegida)) {
-      desgloseStats[p.area].correctas++;
-      correctas++;
-    } else {
-      incorrectas++;
-    }
-  }
-
-  const desglose: Record<string, number> = {};
-  for (const [area, stats] of Object.entries(desgloseStats)) {
-    desglose[area] = stats.total > 0
-      ? Math.round((stats.correctas / stats.total) * 100)
-      : 0;
-  }
-
-  // Si hay examenOrigen con ponderación, usar nota ponderada por área
-  let notaFinal: number;
-  if (examenOrigen?.ponderacion && Object.keys(examenOrigen.ponderacion).length > 0) {
-    let suma = 0;
-    let pesoTotal = 0;
-    for (const [area, peso] of Object.entries(examenOrigen.ponderacion)) {
-      const porcArea = desglose[area] ?? 0;
-      suma += porcArea * peso;
-      pesoTotal += peso;
-    }
-    notaFinal = pesoTotal > 0 ? Math.round(suma / pesoTotal) : 0;
-  } else {
-    notaFinal = Math.round((correctas / preguntas.length) * 100);
-  }
-
-  const tiempoUsado = Math.floor(
-    (Date.now() - new Date(simulador.fecha_inicio).getTime()) / 1000
-  );
-
-  return {
-    nota_final: notaFinal,
-    desglose,
-    total_preguntas: preguntas.length,
-    correctas,
-    incorrectas,
-    sin_responder: sinResponder,
-    tiempo_usado_segundos: tiempoUsado,
-  };
-}
-
 function mezclar<T>(arr: T[]): T[] {
   const r = [...arr];
   for (let i = r.length - 1; i > 0; i--) {
@@ -442,3 +356,10 @@ function armarPorFormato(
   }
   return mezclar(elegidas).slice(0, cantidad);
 }
+
+export {
+  evaluarSimulador,
+  resolverExamenOrigen,
+  type EvaluacionResultado,
+  type FuentesBancoExamen,
+} from "./evaluar-simulador";

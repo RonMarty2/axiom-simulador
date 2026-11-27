@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
-import { cargarExamen } from "@/lib/axiom/banco-loader";
-import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
+import { cargarBanco, cargarExamen } from "@/lib/axiom/banco-loader";
+import { evaluarSimulador, resolverExamenOrigen } from "@/lib/axiom/evaluar-simulador";
 import { actualizarErrores } from "@/lib/axiom/errores-db";
 import { agregarHistorial, getUsuario, getHistorialUsuario, actualizarUsuario, type FacultadId } from "@/lib/data-store";
 import { getCurrentUser } from "@/lib/session";
@@ -45,17 +45,10 @@ export async function POST(
     return NextResponse.json({ simulador });
   }
 
-  let examenOrigen;
-  if (simulador.config?.modo === "examen_real" && simulador.config.anio) {
-    const examenId = [
-      simulador.config.universidad,
-      simulador.config.facultad,
-      simulador.config.anio,
-    ]
-      .map((s) => String(s).toLowerCase().replace(/\s+/g, "-"))
-      .join("-");
-    examenOrigen = (await cargarExamen(examenId)) ?? undefined;
-  }
+  const examenOrigen = await resolverExamenOrigen(simulador.config, {
+    cargarExamen,
+    cargarBanco,
+  });
 
   const resultado = evaluarSimulador(simulador, examenOrigen);
 
@@ -90,7 +83,7 @@ export async function POST(
         usuario_id: usuarioId,
         facultad: simulador.config.facultad as FacultadId,
         modo: simulador.config.modo,
-        anio_examen: simulador.config.anio,
+        anio_examen: simulador.config.anio ?? examenOrigen?.anio,
         tema: simulador.config.tema,
         nota: resultado.nota_final,
         correctas: resultado.correctas,

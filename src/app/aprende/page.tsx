@@ -11,6 +11,7 @@ import {
   EVENTO_PROGRESO_LECCIONES,
   contarCompletadasEnBloque,
   leerLeccionesCompletadas,
+  leerMapaEscenas,
 } from "@/lib/axiom/progreso-lecciones";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
@@ -69,11 +70,16 @@ export default function AprendePage() {
   const [totalExamenes, setTotalExamenes] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [completadas, setCompletadas] = useState<string[]>([]);
+  const [escenasEnCurso, setEscenasEnCurso] = useState<Record<string, number>>({});
+  const usuarioId = usuario?.id ?? null;
   const [bloquesAbiertos, setBloquesAbiertos] = useState<Record<string, boolean>>({});
   const bloqueInicializadoRef = useRef(false);
 
   useEffect(() => {
-    const sincronizar = () => setCompletadas(leerLeccionesCompletadas());
+    const sincronizar = () => {
+      setCompletadas(leerLeccionesCompletadas(usuarioId));
+      setEscenasEnCurso(leerMapaEscenas(usuarioId));
+    };
     sincronizar();
     window.addEventListener(EVENTO_PROGRESO_LECCIONES, sincronizar);
     window.addEventListener("focus", sincronizar);
@@ -83,7 +89,7 @@ export default function AprendePage() {
       window.removeEventListener("focus", sincronizar);
       window.removeEventListener("storage", sincronizar);
     };
-  }, []);
+  }, [usuarioId]);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -203,6 +209,7 @@ export default function AprendePage() {
             abierto={Boolean(bloquesAbiertos[b.id])}
             onToggle={() => alternarBloque(b.id)}
             completadasSet={completadasSet}
+            escenasEnCurso={escenasEnCurso}
           />
         ))}
       </main>
@@ -217,6 +224,7 @@ function BloqueArea({
   abierto,
   onToggle,
   completadasSet,
+  escenasEnCurso,
 }: {
   bloque: Bloque;
   indice: number;
@@ -224,6 +232,7 @@ function BloqueArea({
   abierto: boolean;
   onToggle: () => void;
   completadasSet: Set<string>;
+  escenasEnCurso: Record<string, number>;
 }) {
   const tieneContenido = bloque.unidades.length > 0;
   // Un solo acento para TODAS las áreas. Antes el área 1 era celeste y las
@@ -345,7 +354,7 @@ function BloqueArea({
               ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                   {bloque.unidades.map((u) => (
-                    <UnidadCard key={u.numero} unidad={u} esPremium={esPremium} completadasSet={completadasSet} />
+                    <UnidadCard key={u.numero} unidad={u} esPremium={esPremium} completadasSet={completadasSet} escenasEnCurso={escenasEnCurso} />
                   ))}
                 </div>
               )}
@@ -361,10 +370,12 @@ function UnidadCard({
   unidad,
   esPremium,
   completadasSet,
+  escenasEnCurso,
 }: {
   unidad: Unidad;
   esPremium: boolean;
   completadasSet: Set<string>;
+  escenasEnCurso: Record<string, number>;
 }) {
   const esGratis = unidad.numero === "01";
   const accesible = esGratis || esPremium;
@@ -450,12 +461,16 @@ function UnidadCard({
               {unidad.lecciones.map((l, i) => {
                 const conAudiolibro = tieneAudiolibro(l.slug);
                 const completada = Boolean(l.slug && completadasSet.has(l.slug));
+                const enCurso = Boolean(l.slug && !completada && (escenasEnCurso[l.slug] ?? 0) > 0);
                 if (accesible && l.slug) {
                   return (
                     <li key={i}>
                       <Link href={`/aprende/${l.slug}`} style={leccionEstilo("activa")}>
                         <span style={{ flex: "1 1 160px", minWidth: 0 }}>{l.titulo}</span>
                         <span style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
+                          {enCurso && (
+                            <span style={tagAudiolibroEstilo}>En curso</span>
+                          )}
                           {completada && (
                             <span style={tagCompletadaEstilo}>✓ Completada</span>
                           )}

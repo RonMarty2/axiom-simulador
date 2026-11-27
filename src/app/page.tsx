@@ -110,7 +110,7 @@ const BANNERS_FACULTADES: Record<string, string> = {
 const faqsLanding = (total: number) => [
   {
     q: "¿Los exámenes del simulador son realmente los que tomó la UMSS?",
-    a: `Sí. ${total > 0 ? `Cada uno de los ${total} exámenes` : "Cada examen"} del banco es un facsímil oficial recopilado y contrastado con las convocatorias reales de la UMSS (Medicina, Tecnología, Ciencias Económicas y Derecho). Cada ejercicio indica el año y la gestión en que fue tomado.`,
+    a: `Sí. ${total > 0 ? `Cada uno de los ${total} exámenes` : "Cada examen"} del banco es un facsímil oficial recopilado y contrastado con las convocatorias reales de la UMSS (Medicina, Tecnología y Ciencias Económicas). Cada ejercicio indica el año y la gestión en que fue tomado.`,
   },
   {
     q: "¿Por qué AXIOM es más efectivo que las fotocopias de la calle Jordan o Sucre?",

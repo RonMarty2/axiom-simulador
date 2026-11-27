@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { tieneLaminasPublicadas } from "@/lib/axiom/laminas";
 import Icono, { type NombreIcono } from "./Icono";
 
 // Se monta una sola vez en el layout raíz (el AppHeader, en cambio, lo importa
@@ -20,10 +22,9 @@ const TABS_IZQ: Tab[] = [
   { href: "/aprende", label: "Aprende", icono: "aprende" },
 ];
 const ACCION: Tab = { href: "/practicar", label: "Simulacro", icono: "play" };
-const TABS_DER: Tab[] = [
-  { href: "/laminas", label: "Láminas", icono: "laminas" },
-  { href: "/historial", label: "Historial", icono: "examenes" },
-];
+const TAB_LAMINAS: Tab = { href: "/laminas", label: "Láminas", icono: "laminas" };
+const TAB_PROGRESO: Tab = { href: "/progreso", label: "Progreso", icono: "grafico" };
+const TAB_HISTORIAL: Tab = { href: "/historial", label: "Historial", icono: "examenes" };
 
 const RUTAS_APP = [
   "/dashboard", "/aprende", "/laminas", "/practicar", "/historial",
@@ -113,12 +114,40 @@ function BotonAccion({ activo }: { activo: boolean }) {
 
 export default function BottomNav() {
   const pathname = usePathname() ?? "";
+  const [facultad, setFacultad] = useState<string | null>(null);
+
+  useEffect(() => {
+    const leerFacultad = () => {
+      const attr = document.documentElement.getAttribute("data-facultad");
+      if (attr) {
+        setFacultad(attr);
+        return;
+      }
+      try {
+        setFacultad(localStorage.getItem("axiom_facultad"));
+      } catch {
+        setFacultad(null);
+      }
+    };
+    leerFacultad();
+    const observer = new MutationObserver(leerFacultad);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-facultad"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const segmentos = pathname.split("/").filter(Boolean);
 
   const esRutaApp = RUTAS_APP.some((r) => pathname === r || pathname.startsWith(r + "/"));
   if (!esRutaApp || esInmersiva(segmentos)) return null;
 
   const estaEn = (href: string) => pathname === href || pathname.startsWith(href + "/");
+  const tabsDer: Tab[] = [
+    tieneLaminasPublicadas(facultad) ? TAB_LAMINAS : TAB_PROGRESO,
+    TAB_HISTORIAL,
+  ];
 
   return (
     <>
@@ -141,7 +170,7 @@ export default function BottomNav() {
             <TabLink key={tab.href} tab={tab} activo={estaEn(tab.href)} />
           ))}
           <BotonAccion activo={estaEn(ACCION.href)} />
-          {TABS_DER.map((tab) => (
+          {tabsDer.map((tab) => (
             <TabLink key={tab.href} tab={tab} activo={estaEn(tab.href)} />
           ))}
         </div>
