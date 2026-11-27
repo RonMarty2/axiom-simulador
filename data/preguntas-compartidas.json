@@ -1979,5 +1979,17 @@
     },
     "etiqueta": "Pregunta de práctica PSA 2027",
     "nota": "No es de un examen pasado: es una pregunta de práctica sobre un tema de la lista oficial de la PSA 2027."
+  },
+  {
+    "id": "medicina-practica-psa-2027-eds",
+    "activo": true,
+    "destino": "medicina",
+    "origen": "practica-psa-2027-eds",
+    "archivo": "medicina-psa-2027-eds.md",
+    "areas": {
+      "investigacion": "investigacion"
+    },
+    "etiqueta": "Pregunta de práctica PSA 2027",
+    "nota": "No es de un examen pasado: es una pregunta de práctica sobre un tema de la lista oficial de la PSA 2027."
   }
 ]

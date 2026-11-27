@@ -57,9 +57,10 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     assert.ok(fichaPsa2027, "debe existir ficha vigente de medicina (psa-2027)");
     const reglas = cargarReglasCompartidas();
     const activas = reglasActivasPara(reglas, "medicina");
-    // Desde el 15-nov-2026 hay tres reglas activas: Ingeniería y la práctica PSA 2027 (data/practica: MFQ y Comprensión Lectora).
+    // Cuatro reglas activas: Ingeniería y la práctica PSA 2027 (data/practica: EdS, Lectura y MFQ).
     assert.deepEqual(activas.map((r) => r.id).sort(), [
       "medicina-desde-ingenieria",
+      "medicina-practica-psa-2027-eds",
       "medicina-practica-psa-2027-lectura",
       "medicina-practica-psa-2027-mfq",
     ]);
@@ -362,5 +363,40 @@ describe("práctica PSA 2027 · Comprensión Lectora (data/practica, 15-nov-2026
     });
     const lectura = pool.filter((p) => p.area === "comprension_lectora" && p.prestada?.etiqueta === "Pregunta de práctica PSA 2027");
     assert.equal(lectura.length, 40);
+  });
+});
+
+describe("práctica PSA 2027 · Educación en Salud e Investigación (data/practica, 27-nov-2026)", () => {
+  const regla = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-eds");
+
+  test("el archivo trae 50 preguntas de investigacion, 4 opciones y clave válida", () => {
+    assert.ok(regla?.archivo, "debe existir la regla con archivo");
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    assert.equal(ps.length, 50);
+    assert.deepEqual([...new Set(ps.map((p) => p.area))], ["investigacion"]);
+    for (const p of ps) {
+      assert.equal(p.opciones.length, 4, p.id);
+      assert.ok(p.opciones.some((o) => o.letra === p.respuesta_correcta), p.id);
+    }
+  });
+
+  test("tiene origen propio: no pisa a MFQ ni a Lectura", () => {
+    const mfq = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-mfq");
+    const lec = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-lectura");
+    assert.notEqual(regla!.origen.toLowerCase(), mfq!.origen.toLowerCase());
+    assert.notEqual(regla!.origen.toLowerCase(), lec!.origen.toLowerCase());
+  });
+
+  test("entran al simulacro (predictivo) de Medicina con la etiqueta de práctica PSA 2027", () => {
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    const pool = ampliarPoolConPrestadas({
+      modo: "predictivo",
+      facultad: "medicina",
+      pool: [],
+      preguntasOrigen: (orig) => (orig === regla!.origen ? ps : []),
+      ficha: fichaPsa2027,
+    });
+    const eds = pool.filter((p) => p.area === "investigacion" && p.prestada?.etiqueta === "Pregunta de práctica PSA 2027");
+    assert.equal(eds.length, 50);
   });
 });
