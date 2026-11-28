@@ -1410,3 +1410,10 @@ Esta PC (RonMarty) tenía el historial local 37 commits detrás de GitHub, aunqu
   - Conectada en `data/preguntas-compartidas.json` (`medicina-practica-psa-2027-eds`), probada en `src/lib/preguntas-compartidas.test.ts` y reflejada en `docs/psa-2027/CHECKLIST_PSA2027.md`.
 - **Audiolibros:** Ronald decidió postergar la publicación de los audios cortados mientras define el alojamiento final (se le confirmó el peso real en disco y la opción Cloudflare R2 con 10 GB gratis sin cobro por descarga). El grabador `vigilar_cuota.sh` (PID 16996) sigue activo esperando reposición de cuota diaria (último intento `15:59`, próximo `~16:29`).
 - **Verificación en copia limpia:** `npx tsc --noEmit --incremental false`, `npx eslint src/lib/preguntas-compartidas.test.ts` y `npm test` en verde antes de `git push`.
+
+### 27-nov-2026 (noche, agy ea4ec7c5) · Publicacion de 4 lecciones Medicina PSA 2027 en Aprende
+
+- Integradas y conectadas en `src/lib/axiom/catalogo-aprende.ts` (Medicina): `articulaciones` (Morfofuncion 05), `bcm-nucleo-cromatina` (Biologia Celular 09), `bcm-endomembranas-peroxisomas` (Biologia Celular 10) y `matematica-financiera` (Matematicas 29), mas soporte `MathText` en `AutoCheck`/`MiniQuiz`/`Misconception` (pedagogia.tsx).
+- Escena 5 (nucleolo) de `bcm-nucleo-cromatina` verificada punto por punto contra Calvo Cap. 7 y Cap. 8 (texto literal verificado): 100 % fiel, sin datos inventados.
+- Verificacion visual en escritorio (1280x800), tablet (800x1340) y celular (375x812 y 360x740): corregidos 6 recortes en 360 px (4 formulas largas en `matematica-financiera` y 2 tablas en `articulaciones` y `bcm-endomembranas-peroxisomas`); reconfirmado 0 recortes en las 27 escenas, 690/690 tests, `tsc` y `npm run build` en verde. Subido con OK de Ronald.
+

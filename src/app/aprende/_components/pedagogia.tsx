@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LIENZO } from "./lienzo";
+import MathText from "../../components/MathText";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Bloques de contenido pedagógico — estética LIENZO (3Blue1Brown):
@@ -406,7 +407,7 @@ export function CasoBolivia({ titulo = "Caso Bolivia", children }: { titulo?: st
 export function Misconception({ titulo = "Confusión común", children }: { titulo?: string; children: React.ReactNode }) {
   return (
     <Bloque acento={LIENZO.bad} fondo={LIENZO.bgSoft}>
-      <Etiqueta color={LIENZO.bad}>{titulo}</Etiqueta>
+      <Etiqueta color={LIENZO.bad}><MathText>{titulo}</MathText></Etiqueta>
       <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fgDim }}>{children}</div>
     </Bloque>
   );
@@ -487,7 +488,7 @@ export function MiniQuiz({
       <div style={{ fontSize: 11, letterSpacing: 1.4, color: LIENZO.warn, fontWeight: 700, marginBottom: 6 }}>
         Mini-check rápido
       </div>
-      <div style={{ fontSize: 14, color: LIENZO.fg, fontWeight: 600, marginBottom: 10 }}>{pregunta}</div>
+      <div style={{ fontSize: 14, color: LIENZO.fg, fontWeight: 600, marginBottom: 10 }}><MathText>{pregunta}</MathText></div>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {opciones.map((op, i) => {
           const sel = elegida === i, reveal = elegida !== null, ok = i === correctaIdx;
@@ -503,7 +504,7 @@ export function MiniQuiz({
                 fontSize: 13, fontWeight: 500, color: LIENZO.fg,
                 cursor: reveal ? "default" : "pointer",
               }}>
-              {op}{reveal && ok && " ✓"}{reveal && sel && !ok && " ✗"}
+              <MathText>{op}</MathText>{reveal && ok && " ✓"}{reveal && sel && !ok && " ✗"}
             </button>
           );
         })}
@@ -514,7 +515,7 @@ export function MiniQuiz({
           background: elegida === correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
           borderRadius: 6, fontSize: 12, color: LIENZO.fgDim, lineHeight: 1.5,
         }}>
-          {explicacion}
+          <MathText>{explicacion}</MathText>
         </div>
       )}
     </div>
@@ -543,7 +544,7 @@ export function AutoCheck({
     }}>
       <Etiqueta>¿Lo entendiste?</Etiqueta>
       <div style={{ fontSize: 16, color: LIENZO.fg, fontWeight: 600, marginBottom: 12 }}>
-        {pregunta}
+        <MathText>{pregunta}</MathText>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {opciones.map((op, i) => {
@@ -564,7 +565,7 @@ export function AutoCheck({
                 transition: "all 0.15s",
               }}
             >
-              {op}
+              <MathText>{op}</MathText>
               {reveal && ok && <span style={{ marginLeft: 8, color: LIENZO.ok }}>✓</span>}
               {reveal && sel && !ok && <span style={{ marginLeft: 8, color: LIENZO.bad }}>✗</span>}
             </button>
@@ -580,7 +581,7 @@ export function AutoCheck({
           <strong style={{ color: elegida === correctaIdx ? LIENZO.ok : LIENZO.bad }}>
             {elegida === correctaIdx ? "¡Correcto!" : "No es esa."}
           </strong>{" "}
-          {explicacion}
+          <MathText>{explicacion}</MathText>
         </div>
       )}
     </div>

@@ -271,16 +271,17 @@ const MORFOFUNCION_UNIDADES: Unidad[] = [
   { numero: "02", titulo: "Histología", lecciones: [{ slug: "histologia", titulo: "Los cuatro tejidos, glándulas y membranas" }] },
   { numero: "03", titulo: "Sistema tegumentario", lecciones: [{ slug: "sistema-tegumentario", titulo: "Piel, epidermis y dermis", tags: ["✨ Animada"] }] },
   { numero: "04", titulo: "Sistema esquelético", lecciones: [{ slug: "sistema-esqueletico", titulo: "Huesos, esqueleto axil y apendicular", tags: ["✨ Animada"] }] },
-  { numero: "05", titulo: "Sistema muscular", lecciones: [{ slug: "sistema-muscular", titulo: "Músculo esquelético, contracción y palancas", tags: ["✨ Animada"] }] },
-  { numero: "06", titulo: "Sistema nervioso", lecciones: [{ slug: "sistema-nervioso", titulo: "Neuronas, sinapsis y sistema central y periférico", tags: ["✨ Animada"] }] },
-  { numero: "07", titulo: "Órganos de los sentidos", lecciones: [{ slug: "organos-sentidos", titulo: "Receptores, gusto, olfato, oído y vista" }] },
-  { numero: "08", titulo: "Sistema endocrino", lecciones: [{ slug: "sistema-endocrino", titulo: "Hormonas, hipotálamo e hipófisis", tags: ["✨ Animada"] }] },
-  { numero: "09", titulo: "Sistema cardiovascular", lecciones: [{ slug: "sistema-cardiovascular", titulo: "Corazón, vasos y ciclo cardíaco", tags: ["✨ Animada"] }] },
-  { numero: "10", titulo: "Sistema linfático e inmune", lecciones: [{ slug: "sistema-linfatico-inmune", titulo: "Linfa, ganglios e inmunidad", tags: ["✨ Animada"] }] },
-  { numero: "11", titulo: "Sistema respiratorio", lecciones: [{ slug: "sistema-respiratorio", titulo: "Vías aéreas, ventilación e intercambio gaseoso", tags: ["✨ Animada"] }] },
-  { numero: "12", titulo: "Sistema digestivo", lecciones: [{ slug: "sistema-digestivo", titulo: "Tubo digestivo, digestión y absorción", tags: ["✨ Animada"] }] },
-  { numero: "13", titulo: "Sistema urinario", lecciones: [{ slug: "sistema-urinario", titulo: "Riñones, nefrona y filtración glomerular", tags: ["✨ Animada"] }] },
-  { numero: "14", titulo: "Sistema reproductor", lecciones: [{ slug: "sistema-reproductor", titulo: "Aparatos reproductores y gametogénesis", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Articulaciones", lecciones: [{ slug: "articulaciones", titulo: "Clasificación, sinoviales, palancas y articulaciones clave" }] },
+  { numero: "06", titulo: "Sistema muscular", lecciones: [{ slug: "sistema-muscular", titulo: "Músculo esquelético, contracción y palancas", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Sistema nervioso", lecciones: [{ slug: "sistema-nervioso", titulo: "Neuronas, sinapsis y sistema central y periférico", tags: ["✨ Animada"] }] },
+  { numero: "08", titulo: "Órganos de los sentidos", lecciones: [{ slug: "organos-sentidos", titulo: "Receptores, gusto, olfato, oído y vista" }] },
+  { numero: "09", titulo: "Sistema endocrino", lecciones: [{ slug: "sistema-endocrino", titulo: "Hormonas, hipotálamo e hipófisis", tags: ["✨ Animada"] }] },
+  { numero: "10", titulo: "Sistema cardiovascular", lecciones: [{ slug: "sistema-cardiovascular", titulo: "Corazón, vasos y ciclo cardíaco", tags: ["✨ Animada"] }] },
+  { numero: "11", titulo: "Sistema linfático e inmune", lecciones: [{ slug: "sistema-linfatico-inmune", titulo: "Linfa, ganglios e inmunidad", tags: ["✨ Animada"] }] },
+  { numero: "12", titulo: "Sistema respiratorio", lecciones: [{ slug: "sistema-respiratorio", titulo: "Vías aéreas, ventilación e intercambio gaseoso", tags: ["✨ Animada"] }] },
+  { numero: "13", titulo: "Sistema digestivo", lecciones: [{ slug: "sistema-digestivo", titulo: "Tubo digestivo, digestión y absorción", tags: ["✨ Animada"] }] },
+  { numero: "14", titulo: "Sistema urinario", lecciones: [{ slug: "sistema-urinario", titulo: "Riñones, nefrona y filtración glomerular", tags: ["✨ Animada"] }] },
+  { numero: "15", titulo: "Sistema reproductor", lecciones: [{ slug: "sistema-reproductor", titulo: "Aparatos reproductores y gametogénesis", tags: ["✨ Animada"] }] },
 ];
 
 const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
@@ -292,6 +293,8 @@ const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
   { numero: "06", titulo: "Especializaciones de membrana", lecciones: [{ slug: "bcm-especializaciones-membrana", titulo: "Uniones celulares, adhesión y matriz extracelular" }] },
   { numero: "07", titulo: "Células madre", lecciones: [{ slug: "bcm-celulas-madre", titulo: "Tipos, potencialidad y aplicaciones terapéuticas" }] },
   { numero: "08", titulo: "Respuesta inmunitaria", lecciones: [{ slug: "bcm-respuesta-inmunitaria", titulo: "Anticuerpos, CPH, linfocitos T y B y tolerancia" }] },
+  { numero: "09", titulo: "El núcleo y la cromatina", lecciones: [{ slug: "bcm-nucleo-cromatina", titulo: "Envoltura, poro nuclear, nucleosomas, nucléolo y replicación" }] },
+  { numero: "10", titulo: "Sistema de endomembranas y peroxisomas", lecciones: [{ slug: "bcm-endomembranas-peroxisomas", titulo: "RER, REL, Golgi, tráfico vesicular, lisosomas y peroxisomas" }] },
 ];
 
 const INVESTIGACION_MED_UNIDADES: Unidad[] = [
@@ -403,6 +406,11 @@ const BLOQUES_MEDICINA: Bloque[] = [
         numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 7).padStart(2, "0"),
         titulo: "Análisis matemático: límites, derivadas e integrales",
         lecciones: [{ slug: "analisis-limites-derivadas", titulo: "Límites, indeterminaciones, reglas de derivación, extremos y Barrow" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 8).padStart(2, "0"),
+        titulo: "Matemática financiera",
+        lecciones: [{ slug: "matematica-financiera", titulo: "Interés simple, compuesto, capitalización y descuentos sucesivos" }],
       },
     ],
   },
